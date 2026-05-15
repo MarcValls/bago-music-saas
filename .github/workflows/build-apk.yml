@@ -37,68 +37,21 @@ jobs:
           }
           JSON
 
-      - name: Install expect
-        run: sudo apt-get update && sudo apt-get install -y expect
-
-      - name: Init TWA
+      - name: Prepare TWA
         run: |
-          rm -rf twa
-          /usr/bin/expect -c '
-            set timeout 300
-            spawn bubblewrap init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory twa
-            expect {
-              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
-              -re {already exists.*delete} { send "y\\r"; exp_continue }
-              -re {generate asset links} { send "n\\r"; exp_continue }
-              -re {signing key} { send "n\\r"; exp_continue }
-              -re {keystore} { send "n\\r"; exp_continue }
-              -re {\\?.*:} { send "\\r"; exp_continue }
-              -re {: $} { send "\\r"; exp_continue }
-              timeout { puts "TIMEOUT"; exit 1 }
-              eof { puts "EOF"; exit 0 }
-            }
-          '
-        timeout-minutes: 8
+          mkdir -p twa
+          cp twa-manifest.json twa/
 
-      - name: Update TWA manifest
+      - name: Update TWA
         run: |
           cd twa
-          /usr/bin/expect -c '
-            set timeout 300
-            spawn bubblewrap update
-            expect {
-              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
-              -re {already exists.*delete} { send "y\\r"; exp_continue }
-              -re {generate asset links} { send "n\\r"; exp_continue }
-              -re {signing key} { send "n\\r"; exp_continue }
-              -re {keystore} { send "n\\r"; exp_continue }
-              -re {\\?.*:} { send "\\r"; exp_continue }
-              -re {: $} { send "\\r"; exp_continue }
-              timeout { puts "TIMEOUT"; exit 1 }
-              eof { puts "EOF"; exit 0 }
-            }
-          '
+          bubblewrap update
         timeout-minutes: 5
 
       - name: Build APK
         run: |
           cd twa
-          /usr/bin/expect -c '
-            set timeout 600
-            spawn bubblewrap build
-            expect {
-              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
-              -re {already exists.*delete} { send "y\\r"; exp_continue }
-              -re {generate asset links} { send "n\\r"; exp_continue }
-              -re {signing key} { send "n\\r"; exp_continue }
-              -re {keystore} { send "n\\r"; exp_continue }
-              -re {regenerate} { send "n\\r"; exp_continue }
-              -re {\\?.*:} { send "\\r"; exp_continue }
-              -re {: $} { send "\\r"; exp_continue }
-              timeout { puts "TIMEOUT"; exit 1 }
-              eof { puts "EOF"; exit 0 }
-            }
-          '
+          bubblewrap build
         timeout-minutes: 15
 
       - name: Upload APK
