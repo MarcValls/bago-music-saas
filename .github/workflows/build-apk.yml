@@ -37,17 +37,11 @@ jobs:
           }
           EOF
 
-      - name: Servir manifest localmente
-        run: |
-          python3 -m http.server 8765 &
-          sleep 2
-          echo "Servidor local iniciado"
-
       - name: Init TWA
         run: |
           mkdir -p twa
           bubblewrap init \
-            --manifest http://localhost:8765/manifest.json \
+            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
             --directory twa
         timeout-minutes: 5
 
