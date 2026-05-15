@@ -3,7 +3,7 @@
 <head>`n<link rel="manifest" href="/manifest.json">`n<meta name="theme-color" content="#00d4aa">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>BAGO Score â€” Partituras & TransposiciÃ³n</title>
+<title>BAGO Score — Partituras & Transposición</title>
 <style>
 :root {
   --bg:      #0c0c0c;
@@ -31,7 +31,7 @@ body {
 }
 button, input, select { font: inherit; }
 
-/* â”€â”€ Header â”€â”€ */
+/* ── Header ── */
 .header {
   height: var(--header-h); flex-shrink: 0;
   background: var(--surface); border-bottom: 1px solid var(--border);
@@ -52,7 +52,7 @@ button, input, select { font: inherit; }
 }
 .header-pill.offline { background: rgba(245,158,11,.1); color: var(--warn); border-color: rgba(245,158,11,.25); }
 
-/* â”€â”€ Status bar â”€â”€ */
+/* ── Status bar ── */
 .status-bar {
   height: var(--status-h); flex-shrink: 0;
   background: #0a0a0a; border-bottom: 1px solid var(--border);
@@ -76,10 +76,10 @@ button, input, select { font: inherit; }
 .step-dot.active { color: var(--accent); }
 .step-dot.done   { color: var(--ok); }
 
-/* â”€â”€ Main scroll â”€â”€ */
+/* ── Main scroll ── */
 .main { flex: 1; overflow-y: auto; padding: 10px 12px 80px; -webkit-overflow-scrolling: touch; }
 
-/* â”€â”€ Card â”€â”€ */
+/* ── Card ── */
 .card {
   background: var(--card); border: 1px solid var(--border);
   border-radius: 12px; padding: 14px; margin-bottom: 10px;
@@ -100,7 +100,7 @@ button, input, select { font: inherit; }
 .badge-warn { background: rgba(245,158,11,.12); color: var(--warn); }
 .badge-err  { background: rgba(239,68,68,.12);  color: var(--err); }
 
-/* â”€â”€ Accordion â”€â”€ */
+/* ── Accordion ── */
 .acc { margin-bottom: 8px; }
 .acc-hd {
   display: flex; align-items: center; gap: 10px;
@@ -129,7 +129,7 @@ button, input, select { font: inherit; }
 .acc-bd.open { max-height: 2000px; }
 .acc-inner { padding: 12px 14px 16px; }
 
-/* â”€â”€ Drop zone â”€â”€ */
+/* ── Drop zone ── */
 .drop-zone {
   border: 2px dashed var(--border); border-radius: 14px;
   padding: 32px 20px; text-align: center; cursor: pointer;
@@ -140,7 +140,7 @@ button, input, select { font: inherit; }
 .drop-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
 .drop-sub   { font-size: 12px; color: var(--muted); }
 
-/* â”€â”€ Buttons â”€â”€ */
+/* ── Buttons ── */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 10px 18px; border-radius: 10px; cursor: pointer; font-weight: 600;
@@ -159,7 +159,7 @@ button, input, select { font: inherit; }
 .btn.loading { opacity: .6; pointer-events: none; }
 .btn.disabled { opacity: .4; pointer-events: none; }
 
-/* â”€â”€ Part chips â”€â”€ */
+/* ── Part chips ── */
 .parts-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .part-chip {
   padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 12px;
@@ -171,7 +171,7 @@ button, input, select { font: inherit; }
   border-color: var(--accent); background: rgba(0,212,170,.1); color: var(--accent);
 }
 
-/* â”€â”€ Interval chips â”€â”€ */
+/* ── Interval chips ── */
 .interval-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .iv-chip {
   padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 13px;
@@ -183,7 +183,7 @@ button, input, select { font: inherit; }
 .iv-chip.neg { background: rgba(0,153,255,.08); }
 .iv-chip.neg:active, .iv-chip.neg.active { background: rgba(0,153,255,.2); border-color: var(--accent2); color: var(--accent2); }
 
-/* â”€â”€ Semitones control â”€â”€ */
+/* ── Semitones control ── */
 .semi-control { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .semi-btn { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg2); font-size: 22px; cursor: pointer; display: grid; place-items: center; flex-shrink: 0; transition: all .15s; color: var(--text); }
 .semi-btn:active { background: rgba(0,212,170,.15); border-color: var(--accent); }
@@ -205,7 +205,7 @@ input[type=range]::-webkit-slider-thumb {
   background: var(--accent); cursor: pointer; border: 2px solid #000;
 }
 
-/* â”€â”€ Validation â”€â”€ */
+/* ── Validation ── */
 .val-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
 .val-card {
   padding: 12px; border-radius: 10px; border: 1px solid var(--border);
@@ -223,7 +223,7 @@ input[type=range]::-webkit-slider-thumb {
   background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); color: var(--err);
 }
 
-/* â”€â”€ Score preview â”€â”€ */
+/* ── Score preview ── */
 .score-preview {
   background: #fff; border-radius: 12px; overflow: auto;
   -webkit-overflow-scrolling: touch; max-height: 240px; position: relative;
@@ -234,7 +234,7 @@ input[type=range]::-webkit-slider-thumb {
   color: #999; font-size: 13px; background: #f5f5f5; border-radius: 12px;
 }
 
-/* â”€â”€ XML textarea â”€â”€ */
+/* ── XML textarea ── */
 .xml-area {
   width: 100%; border-radius: 8px; border: 1px solid var(--border);
   background: var(--bg2); color: var(--muted); font-family: monospace;
@@ -243,7 +243,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 .xml-area:focus { border-color: var(--accent); color: var(--text); }
 
-/* â”€â”€ Toast â”€â”€ */
+/* ── Toast ── */
 #toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
   background: var(--accent); color: #000; padding: 8px 20px; border-radius: 20px;
@@ -251,7 +251,7 @@ input[type=range]::-webkit-slider-thumb {
   pointer-events: none; z-index: 999; white-space: nowrap;
 }
 
-/* â”€â”€ Progress spinner â”€â”€ */
+/* ── Progress spinner ── */
 .spinner {
   display: inline-block; width: 16px; height: 16px; border-radius: 50%;
   border: 2px solid rgba(0,212,170,.3); border-top-color: var(--accent);
@@ -259,7 +259,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* â”€â”€ Server badge â”€â”€ */
+/* ── Server badge ── */
 .server-indicator {
   display: flex; align-items: center; gap: 6px; padding: 8px 12px;
   border-radius: 10px; background: var(--bg2); border: 1px solid var(--border);
@@ -272,17 +272,17 @@ input[type=range]::-webkit-slider-thumb {
 </head>
 <body>
 
-<!-- â”€â”€ Header â”€â”€ -->
+<!-- ── Header ── -->
 <div class="header">
-  <div class="header-logo">ðŸŽ¼</div>
+  <div class="header-logo">🎼</div>
   <div class="header-info">
     <div class="header-title">BAGO Score</div>
-    <div class="header-sub" id="header-filename">Partituras & TransposiciÃ³n</div>
+    <div class="header-sub" id="header-filename">Partituras & Transposición</div>
   </div>
-  <div class="header-pill offline" id="server-pill">âš¡ offline</div>
+  <div class="header-pill offline" id="server-pill">⚡ offline</div>
 </div>
 
-<!-- â”€â”€ Step bar â”€â”€ -->
+<!-- ── Step bar ── -->
 <div class="status-bar">
   <div class="step-dot active" id="sdot-1" onclick="focusStep(1)">
     <div class="step-num">1</div><span>Cargar</span>
@@ -301,23 +301,23 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 </div>
 
-<!-- â”€â”€ Main â”€â”€ -->
+<!-- ── Main ── -->
 <div class="main" id="main-scroll">
 
-  <!-- â‘  CARGAR -->
+  <!-- ① CARGAR -->
   <div class="acc" id="acc-wrap-1">
     <div class="acc-hd open" id="acc-hd-1" onclick="toggleAcc(1)">
-      <span class="acc-icon">ðŸ“„</span>
+      <span class="acc-icon">📄</span>
       <span class="acc-label">Cargar partitura</span>
       <span class="acc-badge" id="badge-1">pendiente</span>
-      <span class="acc-chev">â–¶</span>
+      <span class="acc-chev">▶</span>
     </div>
     <div class="acc-bd open" id="acc-bd-1">
       <div class="acc-inner">
 
         <div class="server-indicator">
           <div class="server-dot" id="srv-dot"></div>
-          <span id="srv-label">Buscando BAGO Launcherâ€¦</span>
+          <span id="srv-label">Buscando BAGO Launcher…</span>
           <span style="margin-left:auto;font-size:11px;color:var(--muted)" id="srv-url"></span>
         </div>
 
@@ -325,36 +325,36 @@ input[type=range]::-webkit-slider-thumb {
         <div class="drop-zone" id="drop-zone"
           onclick="document.getElementById('file-input').click()"
           ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
-          <div class="drop-icon">ðŸŽµ</div>
-          <div class="drop-title">Arrastra tu MusicXML aquÃ­</div>
+          <div class="drop-icon">🎵</div>
+          <div class="drop-title">Arrastra tu MusicXML aquí</div>
           <div class="drop-sub">o pulsa para seleccionar archivo .xml / .mxl</div>
         </div>
         <input id="file-input" type="file" accept=".xml,.mxl,.musicxml" style="display:none" onchange="onFileSelect(event)">
 
         <!-- Quick load buttons -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-          <button class="btn btn-sm" onclick="loadExample()">ðŸŒŒ Taberna GalÃ¡ctica</button>
-          <button class="btn btn-sm" onclick="loadExample('bajo')">ðŸŽ¸ Bajo Sol Mayor</button>
+          <button class="btn btn-sm" onclick="loadExample()">🌌 Taberna Galáctica</button>
+          <button class="btn btn-sm" onclick="loadExample('bajo')">🎸 Bajo Sol Mayor</button>
         </div>
 
         <!-- Paste XML -->
         <div style="margin-bottom:8px">
           <div style="font-size:11px;color:var(--muted);margin-bottom:6px">O pega MusicXML:</div>
           <textarea id="xml-paste" class="xml-area" rows="4" placeholder="<?xml version=&quot;1.0&quot;..."></textarea>
-          <button class="btn btn-secondary" style="margin-top:8px;width:100%" onclick="loadFromPaste()">ðŸ“‹ Cargar XML pegado</button>
+          <button class="btn btn-secondary" style="margin-top:8px;width:100%" onclick="loadFromPaste()">📋 Cargar XML pegado</button>
         </div>
 
       </div>
     </div>
   </div>
 
-  <!-- â‘¡ PARTITURA -->
+  <!-- ② PARTITURA -->
   <div class="acc" id="acc-wrap-2">
     <div class="acc-hd" id="acc-hd-2" onclick="toggleAcc(2)">
-      <span class="acc-icon">ðŸŽ¼</span>
+      <span class="acc-icon">🎼</span>
       <span class="acc-label">Partitura cargada</span>
-      <span class="acc-badge" id="badge-2">â€”</span>
-      <span class="acc-chev">â–¶</span>
+      <span class="acc-badge" id="badge-2">—</span>
+      <span class="acc-chev">▶</span>
     </div>
     <div class="acc-bd" id="acc-bd-2">
       <div class="acc-inner" id="partitura-inner">
@@ -363,13 +363,13 @@ input[type=range]::-webkit-slider-thumb {
     </div>
   </div>
 
-  <!-- â‘¢ TRANSPONER -->
+  <!-- ③ TRANSPONER -->
   <div class="acc" id="acc-wrap-3">
     <div class="acc-hd" id="acc-hd-3" onclick="toggleAcc(3)">
-      <span class="acc-icon">ðŸŽµ</span>
+      <span class="acc-icon">🎵</span>
       <span class="acc-label">Transponer</span>
-      <span class="acc-badge" id="badge-3">â€”</span>
-      <span class="acc-chev">â–¶</span>
+      <span class="acc-badge" id="badge-3">—</span>
+      <span class="acc-chev">▶</span>
     </div>
     <div class="acc-bd" id="acc-bd-3">
       <div class="acc-inner" id="transponer-inner">
@@ -378,32 +378,32 @@ input[type=range]::-webkit-slider-thumb {
     </div>
   </div>
 
-  <!-- â‘£ VALIDAR -->
+  <!-- ④ VALIDAR -->
   <div class="acc" id="acc-wrap-4">
     <div class="acc-hd" id="acc-hd-4" onclick="toggleAcc(4)">
-      <span class="acc-icon">âœ…</span>
-      <span class="acc-label">ValidaciÃ³n</span>
-      <span class="acc-badge" id="badge-4">â€”</span>
-      <span class="acc-chev">â–¶</span>
+      <span class="acc-icon">✅</span>
+      <span class="acc-label">Validación</span>
+      <span class="acc-badge" id="badge-4">—</span>
+      <span class="acc-chev">▶</span>
     </div>
     <div class="acc-bd" id="acc-bd-4">
       <div class="acc-inner" id="validar-inner">
-        <div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">TranspÃ³n primero</div>
+        <div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Transpón primero</div>
       </div>
     </div>
   </div>
 
-  <!-- â‘¤ EXPORTAR -->
+  <!-- ⑤ EXPORTAR -->
   <div class="acc" id="acc-wrap-5">
     <div class="acc-hd" id="acc-hd-5" onclick="toggleAcc(5)">
-      <span class="acc-icon">â†“</span>
+      <span class="acc-icon">↓</span>
       <span class="acc-label">Exportar</span>
-      <span class="acc-badge" id="badge-5">â€”</span>
-      <span class="acc-chev">â–¶</span>
+      <span class="acc-badge" id="badge-5">—</span>
+      <span class="acc-chev">▶</span>
     </div>
     <div class="acc-bd" id="acc-bd-5">
       <div class="acc-inner" id="exportar-inner">
-        <div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Completa la transposiciÃ³n primero</div>
+        <div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Completa la transposición primero</div>
       </div>
     </div>
   </div>
@@ -413,11 +413,11 @@ input[type=range]::-webkit-slider-thumb {
 <div id="toast"></div>
 
 <script>
-/* â”€â”€ Config â”€â”€ */
+/* ── Config ── */
 const API_BASE = 'http://localhost:7430';
 const TABERNA_XML_URL = API_BASE + '/taberna_galactica.xml';
 
-/* â”€â”€ State â”€â”€ */
+/* ── State ── */
 const ST = {
   originalXml:    null,
   transposedXml:  null,
@@ -429,7 +429,7 @@ const ST = {
   step:           1,     // 1-5
 };
 
-/* â”€â”€ Accordion â”€â”€ */
+/* ── Accordion ── */
 const _acc = JSON.parse(localStorage.getItem('bago_score_acc') || '{"1":true}');
 
 function toggleAcc(id) {
@@ -463,7 +463,7 @@ function focusStep(n) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-/* â”€â”€ Step dots â”€â”€ */
+/* ── Step dots ── */
 function setStep(n) {
   ST.step = n;
   for (let i = 1; i <= 5; i++) {
@@ -481,7 +481,7 @@ function setBadge(id, text, type='') {
   el.className = 'acc-badge' + (type ? ' ' + type : '');
 }
 
-/* â”€â”€ Toast â”€â”€ */
+/* ── Toast ── */
 function toast(msg, ms=2200) {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -493,29 +493,29 @@ function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-/* â”€â”€ Server check â”€â”€ */
+/* ── Server check ── */
 async function checkServer() {
   try {
     const r = await fetch(API_BASE + '/api/state', { signal: AbortSignal.timeout(3000) });
     if (r.ok) {
       ST.serverOnline = true;
       document.getElementById('srv-dot').className   = 'server-dot ok';
-      document.getElementById('srv-label').textContent = 'âœ… BAGO Launcher conectado';
+      document.getElementById('srv-label').textContent = '✅ BAGO Launcher conectado';
       document.getElementById('srv-url').textContent   = API_BASE;
-      document.getElementById('server-pill').textContent = 'âš¡ online';
+      document.getElementById('server-pill').textContent = '⚡ online';
       document.getElementById('server-pill').classList.remove('offline');
     }
   } catch {
     ST.serverOnline = false;
     document.getElementById('srv-dot').className   = 'server-dot err';
-    document.getElementById('srv-label').textContent = 'BAGO Launcher no disponible â€” modo local';
+    document.getElementById('srv-label').textContent = 'BAGO Launcher no disponible — modo local';
     document.getElementById('srv-url').textContent   = 'python3 launcher/server.py';
-    document.getElementById('server-pill').textContent = 'âš¡ local';
+    document.getElementById('server-pill').textContent = '⚡ local';
     document.getElementById('server-pill').classList.add('offline');
   }
 }
 
-/* â”€â”€ Drag & drop â”€â”€ */
+/* ── Drag & drop ── */
 function onDragOver(e) {
   e.preventDefault();
   document.getElementById('drop-zone').classList.add('over');
@@ -541,11 +541,11 @@ function readFile(file) {
 }
 function loadFromPaste() {
   const xml = document.getElementById('xml-paste').value.trim();
-  if (!xml) { toast('âš ï¸ Pega XML primero'); return; }
+  if (!xml) { toast('⚠️ Pega XML primero'); return; }
   loadXml(xml, 'pegado.xml');
 }
 
-/* â”€â”€ Load example â”€â”€ */
+/* ── Load example ── */
 async function loadExample(type='taberna') {
   if (type === 'bajo') {
     // Try from server
@@ -553,14 +553,14 @@ async function loadExample(type='taberna') {
       try {
         const r = await fetch(API_BASE + '/bajo_a_sol_mayor.html');
         // Only XML files in static. Use taberna as fallback.
-        toast('âš ï¸ Solo disponible taberna_galactica.xml en static');
+        toast('⚠️ Solo disponible taberna_galactica.xml en static');
       } catch (_) {}
     }
     // Use embedded example
     loadXml(EXAMPLE_BAJO_XML, 'bajo_sol_mayor.xml');
     return;
   }
-  // Taberna GalÃ¡ctica
+  // Taberna Galáctica
   if (ST.serverOnline) {
     try {
       const r = await fetch(TABERNA_XML_URL);
@@ -571,15 +571,15 @@ async function loadExample(type='taberna') {
   loadXml(EXAMPLE_XML, 'ejemplo.xml');
 }
 
-/* â”€â”€ Parse & inventory MusicXML â”€â”€ */
+/* ── Parse & inventory MusicXML ── */
 function parseMusicXml(xmlStr) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xmlStr, 'application/xml');
   const err = doc.querySelector('parseerror');
   if (err) return null;
 
-  const title    = doc.querySelector('work-title, movement-title')?.textContent || 'Sin tÃ­tulo';
-  const composer = doc.querySelector('creator[type="composer"]')?.textContent || 'â€”';
+  const title    = doc.querySelector('work-title, movement-title')?.textContent || 'Sin título';
+  const composer = doc.querySelector('creator[type="composer"]')?.textContent || '—';
   const partList = Array.from(doc.querySelectorAll('part-list > score-part'));
   const parts    = partList.map(p => ({
     id:   p.getAttribute('id'),
@@ -606,20 +606,20 @@ function parseMusicXml(xmlStr) {
 
 function instrumentIcon(name) {
   const n = (name || '').toLowerCase();
-  if (n.includes('flute') || n.includes('flauta'))     return 'ðŸŽ¶';
-  if (n.includes('clarinet') || n.includes('clarinete')) return 'ðŸŽµ';
-  if (n.includes('trumpet') || n.includes('trompeta'))  return 'ðŸŽº';
-  if (n.includes('trombone') || n.includes('trombon'))  return 'ðŸŽ·';
-  if (n.includes('tuba') || n.includes('euphonium') || n.includes('eupho')) return 'ðŸŽº';
-  if (n.includes('horn') || n.includes('trompa'))       return 'ðŸ“¯';
-  if (n.includes('bass') || n.includes('bajo'))         return 'ðŸŽ¸';
-  if (n.includes('guitar') || n.includes('guitarra'))   return 'ðŸŽ¸';
-  if (n.includes('piano') || n.includes('keyboard'))    return 'ðŸŽ¹';
-  if (n.includes('drum') || n.includes('percussion') || n.includes('bateria')) return 'ðŸ¥';
-  if (n.includes('violin') || n.includes('viola') || n.includes('cello')) return 'ðŸŽ»';
-  if (n.includes('voice') || n.includes('voz') || n.includes('soprano') || n.includes('tenor')) return 'ðŸŽ¤';
-  if (n.includes('saxo'))   return 'ðŸŽ·';
-  return 'ðŸŽµ';
+  if (n.includes('flute') || n.includes('flauta'))     return '🎶';
+  if (n.includes('clarinet') || n.includes('clarinete')) return '🎵';
+  if (n.includes('trumpet') || n.includes('trompeta'))  return '🎺';
+  if (n.includes('trombone') || n.includes('trombon'))  return '🎷';
+  if (n.includes('tuba') || n.includes('euphonium') || n.includes('eupho')) return '🎺';
+  if (n.includes('horn') || n.includes('trompa'))       return '📯';
+  if (n.includes('bass') || n.includes('bajo'))         return '🎸';
+  if (n.includes('guitar') || n.includes('guitarra'))   return '🎸';
+  if (n.includes('piano') || n.includes('keyboard'))    return '🎹';
+  if (n.includes('drum') || n.includes('percussion') || n.includes('bateria')) return '🥁';
+  if (n.includes('violin') || n.includes('viola') || n.includes('cello')) return '🎻';
+  if (n.includes('voice') || n.includes('voz') || n.includes('soprano') || n.includes('tenor')) return '🎤';
+  if (n.includes('saxo'))   return '🎷';
+  return '🎵';
 }
 
 async function loadXml(xmlStr, filename) {
@@ -633,7 +633,7 @@ async function loadXml(xmlStr, filename) {
 
   // Parse locally first
   const inv = parseMusicXml(xmlStr);
-  if (!inv) { toast('âŒ XML invÃ¡lido'); return; }
+  if (!inv) { toast('❌ XML inválido'); return; }
 
   // If server online, use /api/music/inventory for richer data
   if (ST.serverOnline) {
@@ -646,11 +646,11 @@ async function loadXml(xmlStr, filename) {
       if (data.ok) {
         ST.inventory = { ...inv, ...data };
         renderPartituraPanel(ST.inventory);
-        setBadge(1, 'âœ… cargado', 'done');
+        setBadge(1, '✅ cargado', 'done');
         setStep(2);
         openAcc(2);
         focusStep(2);
-        toast('âœ… ' + filename + ' â€” vÃ­a pipeline');
+        toast('✅ ' + filename + ' — vía pipeline');
         return;
       }
     } catch (_) {}
@@ -659,14 +659,14 @@ async function loadXml(xmlStr, filename) {
   // Fallback: use local parse
   ST.inventory = inv;
   renderPartituraPanel(inv);
-  setBadge(1, 'âœ… cargado', 'done');
+  setBadge(1, '✅ cargado', 'done');
   setStep(2);
   openAcc(2);
   focusStep(2);
-  toast('âœ… ' + filename);
+  toast('✅ ' + filename);
 }
 
-/* â”€â”€ Render partitura panel â”€â”€ */
+/* ── Render partitura panel ── */
 function renderPartituraPanel(inv) {
   const partsHtml = inv.parts.map(p => `
     <div class="part-chip ${ST.selectedTarget === p.id || ST.selectedTarget === p.name ? 'active' : ''}"
@@ -680,10 +680,10 @@ function renderPartituraPanel(inv) {
   document.getElementById('partitura-inner').innerHTML = `
     <div class="card" style="margin-bottom:10px">
       <div class="card-title">Metadata</div>
-      <div class="stat-row"><span class="stat-label">TÃ­tulo</span><span class="stat-val">${esc(inv.title)}</span></div>
+      <div class="stat-row"><span class="stat-label">Título</span><span class="stat-val">${esc(inv.title)}</span></div>
       <div class="stat-row"><span class="stat-label">Compositor</span><span class="stat-val" style="font-size:12px">${esc(inv.composer)}</span></div>
       <div class="stat-row"><span class="stat-label">Tonalidad</span><span class="stat-val"><span class="badge badge-ok">${esc(inv.key)}</span></span></div>
-      <div class="stat-row"><span class="stat-label">CompÃ¡s</span><span class="stat-val">${esc(inv.time)}</span></div>
+      <div class="stat-row"><span class="stat-label">Compás</span><span class="stat-val">${esc(inv.time)}</span></div>
       <div class="stat-row"><span class="stat-label">Compases</span><span class="stat-val">${inv.measures}</span></div>
       <div class="stat-row"><span class="stat-label">Instrumentos</span><span class="stat-val">${inv.parts.length}</span></div>
     </div>
@@ -693,11 +693,11 @@ function renderPartituraPanel(inv) {
     </div>
     <div class="parts-grid" style="margin-bottom:10px">
       <div class="part-chip ${ST.selectedTarget==='all'?'active':''}" onclick="selectTarget('all','all')">
-        <span class="pi">ðŸŽ¼</span><span>Todos</span>
+        <span class="pi">🎼</span><span>Todos</span>
       </div>
       ${partsHtml}
     </div>
-    <button class="btn btn-primary" onclick="goToTransponer()">ðŸŽµ Ir a transponer â†’</button>
+    <button class="btn btn-primary" onclick="goToTransponer()">🎵 Ir a transponer →</button>
   `;
 
   setBadge(2, inv.parts.length + ' partes', 'done');
@@ -709,7 +709,7 @@ function selectTarget(id, name) {
   document.querySelectorAll('.part-chip').forEach(c => c.classList.remove('active'));
   const chip = document.getElementById('part-' + id) || event.currentTarget;
   if (chip) chip.classList.add('active');
-  toast('ðŸŽ¯ Objetivo: ' + (name === 'all' ? 'Todos' : name));
+  toast('🎯 Objetivo: ' + (name === 'all' ? 'Todos' : name));
 }
 
 function goToTransponer() {
@@ -719,15 +719,15 @@ function goToTransponer() {
   focusStep(3);
 }
 
-/* â”€â”€ Render transponer panel â”€â”€ */
+/* ── Render transponer panel ── */
 function renderTransponerPanel() {
   const intervals = [
-    { v: -12, label: 'âˆ’8Âª' }, { v: -7, label: 'âˆ’5Âª' }, { v: -5, label: 'âˆ’4Âª' },
-    { v: -4,  label: 'âˆ’3M' }, { v: -3, label: 'âˆ’3m' }, { v: -2, label: 'âˆ’2M' },
-    { v: -1,  label: 'âˆ’2m' }, { v: 0,  label: '0'   },
+    { v: -12, label: '−8ª' }, { v: -7, label: '−5ª' }, { v: -5, label: '−4ª' },
+    { v: -4,  label: '−3M' }, { v: -3, label: '−3m' }, { v: -2, label: '−2M' },
+    { v: -1,  label: '−2m' }, { v: 0,  label: '0'   },
     { v: +1,  label: '+2m' }, { v: +2, label: '+2M' }, { v: +3, label: '+3m' },
-    { v: +4,  label: '+3M' }, { v: +5, label: '+4Âª' }, { v: +7, label: '+5Âª' },
-    { v: +12, label: '+8Âª' },
+    { v: +4,  label: '+3M' }, { v: +5, label: '+4ª' }, { v: +7, label: '+5ª' },
+    { v: +12, label: '+8ª' },
   ];
 
   const chipsHtml = intervals.map(iv => `
@@ -746,7 +746,7 @@ function renderTransponerPanel() {
 
     <!-- Semitones big display -->
     <div class="semi-control">
-      <button class="semi-btn" onclick="changeSemitone(-1)">âˆ’</button>
+      <button class="semi-btn" onclick="changeSemitone(-1)">−</button>
       <div>
         <div class="semi-display ${ST.semitones < 0 ? 'neg' : ST.semitones === 0 ? 'zero' : ''}" id="semi-disp">
           ${ST.semitones > 0 ? '+' : ''}${ST.semitones}
@@ -760,18 +760,18 @@ function renderTransponerPanel() {
     <input type="range" id="semi-slider" min="-24" max="24" value="${ST.semitones}"
            oninput="setSemitones(+this.value)">
     <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:14px">
-      <span>âˆ’24</span><span>âˆ’12</span><span>0</span><span>+12</span><span>+24</span>
+      <span>−24</span><span>−12</span><span>0</span><span>+12</span><span>+24</span>
     </div>
 
     <!-- Interval chips -->
-    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Intervalos rÃ¡pidos:</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">Intervalos rápidos:</div>
     <div class="interval-grid">${chipsHtml}</div>
 
     <!-- Target key (optional) -->
     <div style="margin-bottom:12px">
-      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Tonalidad destino (opcional â€” sobreescribe semitonos):</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Tonalidad destino (opcional — sobreescribe semitonos):</div>
       <select id="target-key" style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 12px;outline:none">
-        <option value="">â€” auto (usar semitonos) â€”</option>
+        <option value="">— auto (usar semitonos) —</option>
         <option>C major</option><option>G major</option><option>D major</option>
         <option>A major</option><option>E major</option><option>B major</option>
         <option>F major</option><option>Bb major</option><option>Eb major</option>
@@ -783,7 +783,7 @@ function renderTransponerPanel() {
     </div>
 
     <button class="btn btn-primary" id="btn-run-transpose" onclick="runTranspose()">
-      ðŸŽµ Ejecutar transposiciÃ³n
+      🎵 Ejecutar transposición
     </button>
     <div id="transpose-status" style="margin-top:8px;text-align:center;font-size:12px;color:var(--muted)"></div>
   `;
@@ -814,17 +814,17 @@ function setSemitones(v) {
   setBadge(3, (v > 0 ? '+' : '') + v + ' st', '');
 }
 
-/* â”€â”€ Run transpose â”€â”€ */
+/* ── Run transpose ── */
 async function runTranspose() {
-  if (!ST.originalXml) { toast('âš ï¸ Carga una partitura primero'); return; }
+  if (!ST.originalXml) { toast('⚠️ Carga una partitura primero'); return; }
   if (ST.semitones === 0 && !document.getElementById('target-key')?.value) {
-    toast('âš ï¸ Selecciona un intervalo o tonalidad destino'); return;
+    toast('⚠️ Selecciona un intervalo o tonalidad destino'); return;
   }
 
   const btn    = document.getElementById('btn-run-transpose');
   const status = document.getElementById('transpose-status');
   btn.classList.add('loading');
-  btn.innerHTML = '<span class="spinner"></span> Transponiendoâ€¦';
+  btn.innerHTML = '<span class="spinner"></span> Transponiendo…';
   status.textContent = '';
 
   const targetKey = document.getElementById('target-key')?.value || '';
@@ -848,35 +848,35 @@ async function runTranspose() {
 
       if (data.ok && data.xml) {
         transposedXml = data.xml;
-        status.textContent = `âœ… Pipeline: ${data.message || 'transposiciÃ³n completada'}`;
+        status.textContent = `✅ Pipeline: ${data.message || 'transposición completada'}`;
       } else {
         // Fallback to client-side
-        status.textContent = `âš ï¸ Pipeline: ${data.error || '?'} â€” usando modo local`;
+        status.textContent = `⚠️ Pipeline: ${data.error || '?'} — usando modo local`;
         transposedXml = transposeClientSide(ST.originalXml, ST.semitones, ST.selectedTarget);
       }
     } else {
       transposedXml = transposeClientSide(ST.originalXml, ST.semitones, ST.selectedTarget);
-      status.textContent = `âœ… Modo local (sin servidor)`;
+      status.textContent = `✅ Modo local (sin servidor)`;
     }
 
     ST.transposedXml = transposedXml;
-    setBadge(3, 'âœ… +' + Math.abs(ST.semitones) + 'st', 'done');
+    setBadge(3, '✅ +' + Math.abs(ST.semitones) + 'st', 'done');
     setStep(4);
     openAcc(4);
     renderValidarPanel();
     focusStep(4);
-    toast('âœ… TransposiciÃ³n completada');
+    toast('✅ Transposición completada');
 
   } catch(e) {
-    status.textContent = 'âŒ Error: ' + e.message;
-    toast('âŒ Error en transposiciÃ³n');
+    status.textContent = '❌ Error: ' + e.message;
+    toast('❌ Error en transposición');
   } finally {
     btn.classList.remove('loading');
-    btn.innerHTML = 'ðŸŽµ Ejecutar transposiciÃ³n';
+    btn.innerHTML = '🎵 Ejecutar transposición';
   }
 }
 
-/* â”€â”€ Client-side transposition fallback â”€â”€ */
+/* ── Client-side transposition fallback ── */
 function transposeClientSide(xmlStr, semitones, targetPartId) {
   if (semitones === 0) return xmlStr;
 
@@ -935,10 +935,10 @@ function transposeClientSide(xmlStr, semitones, targetPartId) {
   return new XMLSerializer().serializeToString(doc);
 }
 
-/* â”€â”€ Render validar panel â”€â”€ */
+/* ── Render validar panel ── */
 async function renderValidarPanel() {
   document.getElementById('validar-inner').innerHTML =
-    '<div style="text-align:center;padding:20px;color:var(--muted)"><span class="spinner"></span> Validandoâ€¦</div>';
+    '<div style="text-align:center;padding:20px;color:var(--muted)"><span class="spinner"></span> Validando…</div>';
 
   let valData = null;
 
@@ -968,14 +968,14 @@ async function renderValidarPanel() {
   const msg      = valData?.message || (match ? 'Notas conservadas correctamente' : 'Diferencia en conteo de notas');
 
   const warnHtml = warnings.length
-    ? '<div class="warn-list">' + warnings.map(w => `<div class="warn-item">âš ï¸ ${esc(w)}</div>`).join('') + '</div>'
+    ? '<div class="warn-list">' + warnings.map(w => `<div class="warn-item">⚠️ ${esc(w)}</div>`).join('') + '</div>'
     : '';
   const errHtml = errors.length
-    ? '<div class="warn-list">' + errors.map(e => `<div class="err-item">âŒ ${esc(e)}</div>`).join('') + '</div>'
+    ? '<div class="warn-list">' + errors.map(e => `<div class="err-item">❌ ${esc(e)}</div>`).join('') + '</div>'
     : '';
 
   const badge = ok ? 'done' : (errors.length ? 'warn' : '');
-  setBadge(4, ok ? 'âœ… ok' : 'âš ï¸ advertencias', badge);
+  setBadge(4, ok ? '✅ ok' : '⚠️ advertencias', badge);
 
   const targetName = ST.selectedTarget === 'all' ? 'Todos' :
     (ST.inventory?.parts?.find(p => p.id === ST.selectedTarget)?.name || ST.selectedTarget);
@@ -988,18 +988,18 @@ async function renderValidarPanel() {
       </div>
       <div class="val-card">
         <div class="val-num" style="color:${ok?'var(--ok)':'var(--warn)'}">${transNotes}</div>
-        <div class="val-lbl">Notas transposiciÃ³n</div>
+        <div class="val-lbl">Notas transposición</div>
       </div>
     </div>
     <div class="card" style="margin-bottom:10px">
       <div class="stat-row"><span class="stat-label">Semitonos</span><span class="stat-val" style="color:var(--accent)">${ST.semitones > 0 ? '+' : ''}${ST.semitones}</span></div>
       <div class="stat-row"><span class="stat-label">Objetivo</span><span class="stat-val">${esc(targetName)}</span></div>
-      <div class="stat-row"><span class="stat-label">Resultado</span><span class="badge badge-${ok?'ok':'warn'}">${ok ? 'âœ… correcto' : 'âš ï¸ revisar'}</span></div>
+      <div class="stat-row"><span class="stat-label">Resultado</span><span class="badge badge-${ok?'ok':'warn'}">${ok ? '✅ correcto' : '⚠️ revisar'}</span></div>
       <div class="stat-row"><span class="stat-label">Detalle</span><span style="font-size:12px;color:var(--muted);text-align:right;max-width:60%">${esc(msg)}</span></div>
-      <div class="stat-row"><span class="stat-label">Fuente</span><span style="font-size:11px;color:var(--muted)">${valData ? 'ðŸ”— pipeline' : 'ðŸ–¥ï¸ local'}</span></div>
+      <div class="stat-row"><span class="stat-label">Fuente</span><span style="font-size:11px;color:var(--muted)">${valData ? '🔗 pipeline' : '🖥️ local'}</span></div>
     </div>
     ${warnHtml}${errHtml}
-    <button class="btn btn-primary" style="margin-top:10px" onclick="goToExport()">â†“ Ir a exportar â†’</button>
+    <button class="btn btn-primary" style="margin-top:10px" onclick="goToExport()">↓ Ir a exportar →</button>
   `;
 
   setStep(4);
@@ -1012,42 +1012,42 @@ function goToExport() {
   focusStep(5);
 }
 
-/* â”€â”€ Render exportar panel â”€â”€ */
+/* ── Render exportar panel ── */
 function renderExportarPanel() {
   if (!ST.transposedXml) {
-    document.getElementById('exportar-inner').innerHTML = '<div style="color:var(--err)">Sin transposiciÃ³n disponible</div>';
+    document.getElementById('exportar-inner').innerHTML = '<div style="color:var(--err)">Sin transposición disponible</div>';
     return;
   }
 
   const fname = (ST.filename || 'partitura').replace(/\.xml$/i, '')
     + `_transposed_${ST.semitones > 0 ? '+' : ''}${ST.semitones}st.xml`;
 
-  const preview = ST.transposedXml.slice(0, 400) + (ST.transposedXml.length > 400 ? '\nâ€¦' : '');
+  const preview = ST.transposedXml.slice(0, 400) + (ST.transposedXml.length > 400 ? '\n…' : '');
 
-  setBadge(5, 'âœ… listo', 'done');
+  setBadge(5, '✅ listo', 'done');
 
   document.getElementById('exportar-inner').innerHTML = `
     <div class="card" style="margin-bottom:10px">
       <div class="stat-row"><span class="stat-label">Archivo</span><span style="font-size:11px;font-family:monospace;color:var(--accent)">${esc(fname)}</span></div>
-      <div class="stat-row"><span class="stat-label">TamaÃ±o</span><span class="stat-val">${(ST.transposedXml.length / 1024).toFixed(1)} KB</span></div>
+      <div class="stat-row"><span class="stat-label">Tamaño</span><span class="stat-val">${(ST.transposedXml.length / 1024).toFixed(1)} KB</span></div>
       <div class="stat-row"><span class="stat-label">Notas</span><span class="stat-val">${(ST.transposedXml.match(/<pitch>/g) || []).length}</span></div>
     </div>
 
     <button class="btn btn-primary" onclick="downloadXml('${esc(fname)}')" style="margin-bottom:8px">
-      â¬‡ï¸ Descargar MusicXML
+      ⬇️ Descargar MusicXML
     </button>
     <button class="btn btn-secondary" onclick="copyXml()" style="margin-bottom:8px">
-      ðŸ“‹ Copiar al portapapeles
+      📋 Copiar al portapapeles
     </button>
     <button class="btn" onclick="openInEditor()" style="margin-bottom:12px;width:100%">
-      ðŸŽµ Abrir en editor BAGO
+      🎵 Abrir en editor BAGO
     </button>
 
     <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Vista previa XML:</div>
     <textarea class="xml-area" rows="6" readonly>${esc(preview)}</textarea>
 
     <button class="btn btn-sm btn-danger" onclick="resetAll()" style="margin-top:12px;width:100%">
-      ðŸ”„ Nueva partitura
+      🔄 Nueva partitura
     </button>
   `;
 }
@@ -1059,21 +1059,21 @@ function downloadXml(fname) {
   const a    = document.createElement('a');
   a.href = url; a.download = fname; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
-  toast('â¬‡ï¸ Descargandoâ€¦');
+  toast('⬇️ Descargando…');
 }
 
 async function copyXml() {
   if (!ST.transposedXml) return;
   try {
     await navigator.clipboard.writeText(ST.transposedXml);
-    toast('ðŸ“‹ XML copiado al portapapeles');
+    toast('📋 XML copiado al portapapeles');
   } catch {
     const ta = document.createElement('textarea');
     ta.value = ST.transposedXml;
     document.body.appendChild(ta);
     ta.select(); document.execCommand('copy');
     document.body.removeChild(ta);
-    toast('ðŸ“‹ Copiado');
+    toast('📋 Copiado');
   }
 }
 
@@ -1082,20 +1082,20 @@ function openInEditor() {
   localStorage.setItem('bago_score_import', ST.transposedXml);
   localStorage.setItem('bago_score_import_name', ST.filename);
   window.open('./bago_matrix_music_editor.html', '_blank');
-  toast('ðŸŽµ Abriendo editorâ€¦');
+  toast('🎵 Abriendo editor…');
 }
 
 function resetAll() {
   ST.originalXml = ST.transposedXml = ST.filename = ST.inventory = null;
   ST.selectedTarget = 'all'; ST.semitones = 0;
-  document.getElementById('header-filename').textContent = 'Partituras & TransposiciÃ³n';
+  document.getElementById('header-filename').textContent = 'Partituras & Transposición';
   setStep(1);
-  ['2','3','4','5'].forEach(i => setBadge(i, 'â€”', ''));
+  ['2','3','4','5'].forEach(i => setBadge(i, '—', ''));
   setBadge(1, 'pendiente', '');
   document.getElementById('partitura-inner').innerHTML = '<div class="score-placeholder">Carga una partitura primero</div>';
   document.getElementById('transponer-inner').innerHTML = '<div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Selecciona un instrumento primero</div>';
-  document.getElementById('validar-inner').innerHTML = '<div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">TranspÃ³n primero</div>';
-  document.getElementById('exportar-inner').innerHTML = '<div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Completa la transposiciÃ³n primero</div>';
+  document.getElementById('validar-inner').innerHTML = '<div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Transpón primero</div>';
+  document.getElementById('exportar-inner').innerHTML = '<div class="score-placeholder" style="background:var(--bg2);color:var(--muted)">Completa la transposición primero</div>';
   // Close all except first
   ['2','3','4','5'].forEach(i => {
     const hd = document.getElementById('acc-hd-'+i);
@@ -1103,10 +1103,10 @@ function resetAll() {
     if (hd) { hd.classList.remove('open'); bd.classList.remove('open'); }
   });
   openAcc(1); focusStep(1);
-  toast('ðŸ”„ Listo para nueva partitura');
+  toast('🔄 Listo para nueva partitura');
 }
 
-/* â”€â”€ Embedded example scores â”€â”€ */
+/* ── Embedded example scores ── */
 const EXAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN"
   "http://www.musicxml.org/dtds/partwise.dtd">
@@ -1142,7 +1142,7 @@ const EXAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 
 const EXAMPLE_BAJO_XML = EXAMPLE_XML.replace('Piano', 'Bajo').replace('Bajo', 'Bajo').replace('G</sign><line>2', 'F</sign><line>4').replace(/<octave>4<\/octave>/g, '<octave>2</octave>').replace(/<octave>5<\/octave>/g, '<octave>3</octave>');
 
-/* â”€â”€ Init â”€â”€ */
+/* ── Init ── */
 restoreAcc();
 checkServer();
 setInterval(checkServer, 30000);

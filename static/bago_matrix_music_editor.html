@@ -3,7 +3,7 @@
 <head>`n<link rel="manifest" href="/manifest.json">`n<meta name="theme-color" content="#00d4aa">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>BAGO Music â€” Mobile Score Editor</title>
+<title>BAGO Music — Mobile Score Editor</title>
 <script src="./vendor/vexflow.min.js"></script>
 <script src="./vendor/tone.min.js"></script>
 <style>
@@ -923,41 +923,41 @@ kbd {
 </head>
 <body data-state="empty">
   <div id="header">
-    <h1>ðŸŽµ BAGO Music</h1>
-    <span id="version-badge" class="badge badge-version">v3.0 Â· Mobile</span>
-    <span id="mode-badge" class="badge badge-offline">ðŸ”§ Offline</span>
+    <h1>🎵 BAGO Music</h1>
+    <span id="version-badge" class="badge badge-version">v3.0 · Mobile</span>
+    <span id="mode-badge" class="badge badge-offline">🔧 Offline</span>
     <span id="sel-pill" hidden>0 notas</span>
   </div>
 
   <div id="step-bar" hidden>
-    <span class="step active" data-step="1">â‘  Abrir</span>
-    <span class="step" data-step="2">â‘¡ Partitura</span>
-    <span class="step" data-step="3">â‘¢ Transponer</span>
-    <span class="step" data-step="4">â‘£ Resultado</span>
-    <span class="step" data-step="5">â‘¤ Escucha</span>
+    <span class="step active" data-step="1">① Abrir</span>
+    <span class="step" data-step="2">② Partitura</span>
+    <span class="step" data-step="3">③ Transponer</span>
+    <span class="step" data-step="4">④ Resultado</span>
+    <span class="step" data-step="5">⑤ Escucha</span>
   </div>
 
   <div id="score-wrap">
     <div id="empty-drop">
-      <div class="drop-icon">ðŸŽµ</div>
+      <div class="drop-icon">🎵</div>
       <div class="drop-title">Abre una partitura</div>
-      <div class="drop-sub">.xml Â· .musicxml Â· file:/// compatible</div>
-      <button class="btn-primary btn-open" onclick="document.getElementById('file-input').click()">ðŸ“‚ Abrir archivo</button>
+      <div class="drop-sub">.xml · .musicxml · file:/// compatible</div>
+      <button class="btn-primary btn-open" onclick="document.getElementById('file-input').click()">📂 Abrir archivo</button>
       <input type="file" id="file-input" accept=".xml,.musicxml" style="display:none" onchange="onFileLoad(event)">
-      <button class="btn-secondary" onclick="loadMusicXML(EXAMPLE_SCORE)">ðŸ“– Ejemplo melancÃ³lico</button>
+      <button class="btn-secondary" onclick="loadMusicXML(EXAMPLE_SCORE)">📖 Ejemplo melancólico</button>
       <div id="recent-list"></div>
     </div>
 
     <div id="score-container">
       <div id="score-header">
-        <div class="sc-title" id="sc-title">Mi ComposiciÃ³n</div>
+        <div class="sc-title" id="sc-title">Mi Composición</div>
         <div class="sc-composer" id="sc-composer">Compositor</div>
       </div>
       <div id="vf-area">
         <div id="vf-container"></div>
         <canvas id="ghost-canvas"></canvas>
         <div id="hit-overlay"></div>
-        <div id="empty-hint">ðŸŽµ Haz clic aquÃ­ para colocar notas<br><small>Selecciona duraciÃ³n en la barra flotante</small></div>
+        <div id="empty-hint">🎵 Haz clic aquí para colocar notas<br><small>Selecciona duración en la barra flotante</small></div>
       </div>
     </div>
   </div>
@@ -977,7 +977,7 @@ kbd {
         <span class="dur-name">Blanca</span>
       </button>
       <button class="btn-dur dur" id="d-8" onclick="setDur('8')">
-        <span class="dur-symbol">â™ª</span>
+        <span class="dur-symbol">♪</span>
         <span class="dur-name">Corchea</span>
       </button>
       <button class="btn-dur dur" id="d-16" onclick="setDur('16')">
@@ -989,34 +989,34 @@ kbd {
         <span class="dur-name">Fusa</span>
       </button>
       <div class="ft-sep"></div>
-      <button class="btn-mod" id="btn-dot" onclick="toggleDot()">Â· Puntillo</button>
-      <button class="btn-mod" id="btn-rest" onclick="toggleRest()">ð„½ Silencio</button>
+      <button class="btn-mod" id="btn-dot" onclick="toggleDot()">· Puntillo</button>
+      <button class="btn-mod" id="btn-rest" onclick="toggleRest()">𝄽 Silencio</button>
     </div>
     <div class="ft-row">
-      <button class="btn btn-acc acc" id="a-sharp" onclick="setAcc('#')">â™¯</button>
-      <button class="btn btn-acc acc" id="a-flat" onclick="setAcc('b')">â™­</button>
-      <button class="btn btn-acc acc" id="a-natural" onclick="setAcc('n')">â™®</button>
+      <button class="btn btn-acc acc" id="a-sharp" onclick="setAcc('#')">♯</button>
+      <button class="btn btn-acc acc" id="a-flat" onclick="setAcc('b')">♭</button>
+      <button class="btn btn-acc acc" id="a-natural" onclick="setAcc('n')">♮</button>
       <div class="ft-sep"></div>
-      <button class="btn btn-mic" id="btn-mic" onclick="Ears.toggle()" title="Tararear notas (M)">ðŸŽ¤</button>
-      <button class="btn btn-danger" onclick="deleteLast()">âŒ«</button>
-      <button class="btn btn-danger" onclick="clearAll()">âœ•</button>
+      <button class="btn btn-mic" id="btn-mic" onclick="Ears.toggle()" title="Tararear notas (M)">🎤</button>
+      <button class="btn btn-danger" onclick="deleteLast()">⌫</button>
+      <button class="btn btn-danger" onclick="clearAll()">✕</button>
       <div style="margin-left:auto;display:flex;gap:8px;">
-        <button class="btn" id="btn-transpose" hidden onclick="showTransposeSheet()">ðŸŽµ SelecciÃ³n</button>
-        <button class="btn" onclick="showPartsSheet()">â‰¡ Partes</button>
-        <button class="btn btn-play" id="btn-play" onclick="togglePlay()">â–¶</button>
+        <button class="btn" id="btn-transpose" hidden onclick="showTransposeSheet()">🎵 Selección</button>
+        <button class="btn" onclick="showPartsSheet()">≡ Partes</button>
+        <button class="btn btn-play" id="btn-play" onclick="togglePlay()">▶</button>
       </div>
     </div>
   </div>
 
   <div id="sel-bar" hidden>
     <span id="sel-desc">0 notas seleccionadas</span>
-    <button class="btn-primary" onclick="showTransposeSheet()">ðŸŽµ Transponer â†’</button>
+    <button class="btn-primary" onclick="showTransposeSheet()">🎵 Transponer →</button>
   </div>
 
   <div id="ears-panel">
     <canvas id="ears-wave" width="320" height="52"></canvas>
     <div id="ears-display">
-      <div id="ears-note">â€”</div>
+      <div id="ears-note">—</div>
       <div id="ears-freq"></div>
     </div>
     <div id="ears-controls">
@@ -1024,8 +1024,8 @@ kbd {
         <input type="checkbox" id="ears-auto-chk" onchange="Ears.autoAdd=this.checked">
         Auto-add (400ms)
       </label>
-      <button class="btn-primary ears-btn-add" id="ears-add-btn" onclick="Ears.addCurrent()">ï¼‹ AÃ±adir</button>
-      <button class="btn btn-danger ears-btn-stop" onclick="Ears.stop()">â–  Detener</button>
+      <button class="btn-primary ears-btn-add" id="ears-add-btn" onclick="Ears.addCurrent()">＋ Añadir</button>
+      <button class="btn btn-danger ears-btn-stop" onclick="Ears.stop()">■ Detener</button>
     </div>
     <div id="ears-log"></div>
   </div>
@@ -1033,24 +1033,24 @@ kbd {
   <div id="statusbar">
     <span class="st-item">Notas: <span class="st-val" id="st-n">0</span></span>
     <span class="st-item">Compases: <span class="st-val" id="st-m">1</span></span>
-    <span class="st-item st-extra">DuraciÃ³n: <span class="st-val" id="st-d">Negra (â™©)</span></span>
-    <span class="st-item st-extra">AlteraciÃ³n: <span class="st-val" id="st-a">â€”</span></span>
+    <span class="st-item st-extra">Duración: <span class="st-val" id="st-d">Negra (♩)</span></span>
+    <span class="st-item st-extra">Alteración: <span class="st-val" id="st-a">—</span></span>
     <span class="st-item st-mode">Modo: <span class="st-val" id="st-mode">Nota</span></span>
-    <span class="st-hint" id="st-hint">clic para aÃ±adir nota</span>
+    <span class="st-hint" id="st-hint">clic para añadir nota</span>
   </div>
 
   <div id="sheet-parts" class="bottom-sheet" hidden>
     <div class="sheet-handle"></div>
     <div class="sheet-header">
       <h3>Estructura de la partitura</h3>
-      <button onclick="hideSheet('sheet-parts')">âœ•</button>
+      <button onclick="hideSheet('sheet-parts')">✕</button>
     </div>
     <div id="parts-content"></div>
     <div class="sheet-meta-row">
       <div id="meta-bar">
         <div class="meta-g">
-          <label>TÃ­tulo</label>
-          <input type="text" id="m-title" value="Mi ComposiciÃ³n" oninput="onMeta()">
+          <label>Título</label>
+          <input type="text" id="m-title" value="Mi Composición" oninput="onMeta()">
         </div>
         <div class="meta-g">
           <label>Compositor</label>
@@ -1064,7 +1064,7 @@ kbd {
           </select>
         </div>
         <div class="meta-g">
-          <label>CompÃ¡s</label>
+          <label>Compás</label>
           <select id="m-time" onchange="onMeta()">
             <option value="4/4">4/4</option>
             <option value="3/4">3/4</option>
@@ -1076,13 +1076,13 @@ kbd {
           <label>Armadura</label>
           <select id="m-key" onchange="onMeta()">
             <option value="C">Do Mayor (C)</option>
-            <option value="G">Sol Mayor (G) â™¯</option>
-            <option value="D">Re Mayor (D) â™¯â™¯</option>
-            <option value="A">La Mayor (A) â™¯â™¯â™¯</option>
-            <option value="F">Fa Mayor (F) â™­</option>
-            <option value="Bb">Sib Mayor (Bb) â™­â™­</option>
+            <option value="G">Sol Mayor (G) ♯</option>
+            <option value="D">Re Mayor (D) ♯♯</option>
+            <option value="A">La Mayor (A) ♯♯♯</option>
+            <option value="F">Fa Mayor (F) ♭</option>
+            <option value="Bb">Sib Mayor (Bb) ♭♭</option>
             <option value="Am">La menor (Am)</option>
-            <option value="Em">Mi menor (Em) â™¯</option>
+            <option value="Em">Mi menor (Em) ♯</option>
           </select>
         </div>
       </div>
@@ -1098,8 +1098,8 @@ kbd {
           <span><kbd>7</kbd> Fusa</span>
           <span><kbd>R</kbd> Silencio</span>
           <span><kbd>.</kbd> Puntillo</span>
-          <span><kbd>â†‘</kbd><kbd>â†“</kbd> Sube/baja octava</span>
-          <span><kbd>Del</kbd> Borrar Ãºltima</span>
+          <span><kbd>↑</kbd><kbd>↓</kbd> Sube/baja octava</span>
+          <span><kbd>Del</kbd> Borrar última</span>
           <span><kbd>Espacio</kbd> Reproducir</span>
         </div>
       </details>
@@ -1109,13 +1109,13 @@ kbd {
   <div id="sheet-transpose" class="bottom-sheet" hidden>
     <div class="sheet-handle"></div>
     <div class="sheet-header">
-      <h3>Transponer selecciÃ³n</h3>
-      <button onclick="hideSheet('sheet-transpose')">âœ•</button>
+      <h3>Transponer selección</h3>
+      <button onclick="hideSheet('sheet-transpose')">✕</button>
     </div>
     <div id="target-summary"></div>
     <div class="direction-toggle">
-      <button id="dir-up" class="dir-btn active" onclick="setDirection(1)">â–² Subir</button>
-      <button id="dir-dn" class="dir-btn" onclick="setDirection(-1)">â–¼ Bajar</button>
+      <button id="dir-up" class="dir-btn active" onclick="setDirection(1)">▲ Subir</button>
+      <button id="dir-dn" class="dir-btn" onclick="setDirection(-1)">▼ Bajar</button>
     </div>
     <div class="interval-grid"></div>
     <div id="custom-wrap">
@@ -1123,21 +1123,21 @@ kbd {
       <input id="custom-semitones" type="number" value="2" min="-24" max="24" oninput="updateIntervalPreview()">
     </div>
     <div id="interval-preview">= +2 semitonos</div>
-    <p class="honesty-note">â„¹ï¸ Silencios y duraciones no se modifican.</p>
-    <button class="btn-primary btn-apply" onclick="applyTransposeMain()">â–¶ Aplicar</button>
+    <p class="honesty-note">ℹ️ Silencios y duraciones no se modifican.</p>
+    <button class="btn-primary btn-apply" onclick="applyTransposeMain()">▶ Aplicar</button>
   </div>
 
   <div id="sheet-result" class="bottom-sheet" hidden>
     <div class="sheet-handle"></div>
     <div class="sheet-header">
-      <span id="result-badge" class="badge-local">ðŸ”§ TransposiciÃ³n local</span>
-      <button onclick="hideSheet('sheet-result')">âœ•</button>
+      <span id="result-badge" class="badge-local">🔧 Transposición local</span>
+      <button onclick="hideSheet('sheet-result')">✕</button>
     </div>
     <div id="result-stats"></div>
     <div id="result-warnings"></div>
     <div class="result-actions">
-      <button class="btn" onclick="backToEdit()">â† Volver a editar</button>
-      <button class="btn-primary btn-export" onclick="exportMusicXML()">â†“ Exportar MusicXML</button>
+      <button class="btn" onclick="backToEdit()">← Volver a editar</button>
+      <button class="btn-primary btn-export" onclick="exportMusicXML()">↓ Exportar MusicXML</button>
     </div>
     <div id="pipeline-chips"></div>
   </div>
@@ -1156,7 +1156,7 @@ const S = {
   acc:       null,
   rest:      false,
   dotted:    false,
-  title:     'Mi ComposiciÃ³n',
+  title:     'Mi Composición',
   composer:  'Compositor',
   clef:      'treble',
   timeSig:   '4/4',
@@ -1192,22 +1192,22 @@ function transposePitchDiatonic(step, octave, alter, semitones) {
   return { step: ns, octave: newOct, alter: na };
 }
 
-// â”€â”€â”€ CONSTANTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── CONSTANTS ─────────────────────────────────────────────────────
 
 // Duration fractional value (1 = whole note)
 const DUR_VAL = { w:1, h:1/2, q:1/4, '8':1/8, '16':1/16, '32':1/32 };
 
 // Duration label info
 const DUR_INFO = {
-  w:   { label:'Redonda',     sym:'ð…',   vf:'w'  },
-  h:   { label:'Blanca',      sym:'ð…—ð…¥',   vf:'h'  },
-  q:   { label:'Negra',       sym:'â™©',  vf:'q'  },
-  '8': { label:'Corchea',     sym:'â™ª',  vf:'8'  },
-  '16':{ label:'Semicorchea', sym:'ð…˜ð…¥ð…¯', vf:'16' },
-  '32':{ label:'Fusa',        sym:'ð…˜ð…¥ð…°', vf:'32' },
+  w:   { label:'Redonda',     sym:'𝅝',   vf:'w'  },
+  h:   { label:'Blanca',      sym:'𝅗𝅥',   vf:'h'  },
+  q:   { label:'Negra',       sym:'♩',  vf:'q'  },
+  '8': { label:'Corchea',     sym:'♪',  vf:'8'  },
+  '16':{ label:'Semicorchea', sym:'𝅘𝅥𝅯', vf:'16' },
+  '32':{ label:'Fusa',        sym:'𝅘𝅥𝅰', vf:'32' },
 };
 
-// Time signature â†’ beats info for VexFlow Voice
+// Time signature → beats info for VexFlow Voice
 const TIME_BEATS = {
   '4/4': { num:4, val:4 },
   '3/4': { num:3, val:4 },
@@ -1215,37 +1215,37 @@ const TIME_BEATS = {
   '6/8': { num:6, val:8 },
 };
 
-// Time signature â†’ measure length in whole-note fractions
+// Time signature → measure length in whole-note fractions
 const TIME_MLEN = { '4/4':1, '3/4':3/4, '2/4':1/2, '6/8':3/4 };
 
-// â”€â”€â”€ TREBLE CLEF PITCH TABLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── TREBLE CLEF PITCH TABLE ───────────────────────────────────────
 // Index 0 = highest note in table, descending diatonically.
 // TREBLE_TOP_IDX = the index where 'f/5' (top staff line) lives.
-// step = (mouseY - topLineY) / 5  â†’  index = TREBLE_TOP_IDX + step
+// step = (mouseY - topLineY) / 5  →  index = TREBLE_TOP_IDX + step
 const TREBLE = [
   'e/7','d/7','c/7','b/6','a/6','g/6','f/6',
   'e/6','d/6','c/6','b/5','a/5','g/5',
-  'f/5',  // â† TREBLE_TOP_IDX = 13  (top staff line in treble clef)
+  'f/5',  // ← TREBLE_TOP_IDX = 13  (top staff line in treble clef)
   'e/5','d/5','c/5',
   'b/4','a/4','g/4','f/4',
-  'e/4',  // â† bottom staff line (index 21)
+  'e/4',  // ← bottom staff line (index 21)
   'd/4','c/4','b/3','a/3','g/3','f/3','e/3','d/3','c/3','b/2',
 ];
 const TREBLE_TOP = 13;
 
-// â”€â”€â”€ BASS CLEF PITCH TABLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── BASS CLEF PITCH TABLE ─────────────────────────────────────────
 // Top staff line in bass clef = A3  (BASS_TOP_IDX)
 const BASS = [
   'e/5','d/5','c/5','b/4','a/4','g/4','f/4','e/4','d/4','c/4',
   'b/3','a/3','g/3',
-  'a/3',  // â† BASS_TOP_IDX = 13  (top staff line in bass clef)
+  'a/3',  // ← BASS_TOP_IDX = 13  (top staff line in bass clef)
   'g/3','f/3','e/3','d/3','c/3',
   'b/2','a/2',
-  'g/2',  // â† bottom staff line (index 21)
+  'g/2',  // ← bottom staff line (index 21)
   'f/2','e/2','d/2','c/2','b/1','a/1','g/1',
 ];
 // Bass clef: top line = A3
-// VexFlow line 0 â†’ A3
+// VexFlow line 0 → A3
 const BASS_TOP = 13;
 
 // Correct mapping: regenerate both tables properly
@@ -1271,7 +1271,7 @@ function buildPitchTable(topNote, topOctave, topIdx, length) {
 const TREBLE_TABLE = buildPitchTable('f', 5, TREBLE_TOP, 32);
 const BASS_TABLE   = buildPitchTable('a', 3, BASS_TOP,   30);
 
-// â”€â”€â”€ PITCH UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── PITCH UTILITIES ───────────────────────────────────────────────
 
 function getStepPitch(step, clef) {
   if (clef === 'treble') {
@@ -1284,13 +1284,13 @@ function getStepPitch(step, clef) {
 }
 
 function noteName(vfPitch) {
-  // 'c/4' â†’ 'C4'
+  // 'c/4' → 'C4'
   const [n, o] = vfPitch.split('/');
   return n.toUpperCase() + o;
 }
 
 function pitchToTone(vfPitch, acc) {
-  // 'c/4' + '#' â†’ 'C#4',  'b/4' + 'b' â†’ 'Bb4'
+  // 'c/4' + '#' → 'C#4',  'b/4' + 'b' → 'Bb4'
   const [n, o] = vfPitch.split('/');
   const a = acc === '#' ? '#' : acc === 'b' ? 'b' : '';
   return n.toUpperCase() + a + o;
@@ -1304,7 +1304,7 @@ function shiftOctave(vfPitch, delta) {
   return n + '/' + newOct;
 }
 
-// â”€â”€â”€ MIDI / PITCH CONVERSION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MIDI / PITCH CONVERSION ───────────────────────────────────────
 
 const STEP_SEMITONES = { c:0, d:2, e:4, f:5, g:7, a:9, b:11 };
 const MIDI_STEP      = ['c','c','d','d','e','f','f','g','g','a','a','b'];
@@ -1320,7 +1320,7 @@ function midiToNote(midi) {
   return { step: MIDI_STEP[pc], octave: oct, alter: MIDI_ALTER[pc] };
 }
 
-// â”€â”€â”€ MEASURE SPLITTING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MEASURE SPLITTING ─────────────────────────────────────────────
 
 function noteValue(note) {
   return DUR_VAL[note.dur] * (note.dotted ? 1.5 : 1);
@@ -1359,7 +1359,7 @@ function fillRests(remainder) {
   return out;
 }
 
-// â”€â”€â”€ VEXFLOW NOTE BUILDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── VEXFLOW NOTE BUILDER ──────────────────────────────────────────
 
 function makeVFNote(note, noteIdx) {
   const keys     = note.rest ? ['b/4'] : [note.pitch];
@@ -1386,7 +1386,7 @@ function makeGhostRest(dur) {
   return vn;
 }
 
-// â”€â”€â”€ RENDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── RENDER ────────────────────────────────────────────────────────
 
 let renderTimer = null;
 function schedRender() {
@@ -1414,7 +1414,7 @@ function doRender() {
   const MOBILE_W   = 640;
   const minStaveW  = containerW < MOBILE_W ? 280 : 260;
 
-  // Build measure list â€” always keep at least one, always add an empty trailing measure
+  // Build measure list — always keep at least one, always add an empty trailing measure
   const measures = splitMeasures(S.notes, S.timeSig);
   if (measures.length === 0) measures.push([]);
   const lastBeats = measures[measures.length - 1].reduce((s, n) => s + noteValue(n), 0);
@@ -1545,19 +1545,19 @@ function doRender() {
   updateStatus(measures.length);
 }
 
-// â”€â”€â”€ STATUS BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── STATUS BAR ────────────────────────────────────────────────────
 
 function updateStatus(mCount) {
   document.getElementById('st-n').textContent = S.notes.length;
   document.getElementById('st-m').textContent = mCount ?? 1;
   const d = DUR_INFO[S.dur] || DUR_INFO.q;
-  document.getElementById('st-d').textContent = d.label + ' (' + d.sym + ')' + (S.dotted ? ' Â·' : '');
-  const aMap = { '#':'â™¯ Sostenido', b:'â™­ Bemol', n:'â™® Becuadro' };
-  document.getElementById('st-a').textContent = S.acc ? aMap[S.acc] : 'â€”';
+  document.getElementById('st-d').textContent = d.label + ' (' + d.sym + ')' + (S.dotted ? ' ·' : '');
+  const aMap = { '#':'♯ Sostenido', b:'♭ Bemol', n:'♮ Becuadro' };
+  document.getElementById('st-a').textContent = S.acc ? aMap[S.acc] : '—';
   document.getElementById('st-mode').textContent = S.rest ? 'Silencio' : 'Nota';
 }
 
-// â”€â”€â”€ TOOLBAR ACTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── TOOLBAR ACTIONS ───────────────────────────────────────────────
 
 function setDur(d) {
   S.dur = d;
@@ -1596,7 +1596,7 @@ function deleteLast() {
 
 function clearAll() {
   if (S.notes.length === 0) return;
-  if (confirm('Â¿Borrar todas las notas de la partitura?')) {
+  if (confirm('¿Borrar todas las notas de la partitura?')) {
     S.notes = []; schedRender();
   }
 }
@@ -1611,12 +1611,12 @@ function onMeta() {
   document.getElementById('sc-composer').textContent = S.composer;
   schedRender();
 }
-// â”€â”€â”€ NOTE ENTRY (click on staff) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── NOTE ENTRY (click on staff) ───────────────────────────────────
 
 function getStaveAtSVGy(svgY) {
   for (const s of S.staves) {
     const topY = s.y - 20;   // allow 2 ledger spaces above
-    const botY = s.y + 60;   // 4 lines Ã— 10px + ledger below
+    const botY = s.y + 60;   // 4 lines × 10px + ledger below
     if (svgY >= topY && svgY <= botY) return s;
   }
   return null;
@@ -1646,7 +1646,7 @@ function addNote(pitch, explicitAcc) {
   }
   schedRender();
 }
-// â”€â”€â”€ HOVER & GHOST NOTE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── HOVER & GHOST NOTE ────────────────────────────────────────────
 
 let _hoverAF = null;
 
@@ -1679,7 +1679,7 @@ function _processHover(e) {
   const gcc = gc.getContext('2d');
   gcc.clearRect(0, 0, gc.width, gc.height);
 
-  // Convert SVG coords â†’ canvas coords
+  // Convert SVG coords → canvas coords
   const canvasRect = gc.getBoundingClientRect();
   const cx = e.clientX - canvasRect.left;
   const cy = snapSvgY + svgRect.top - canvasRect.top;
@@ -1713,9 +1713,9 @@ function _processHover(e) {
   }
 
   // Tooltip
-  const accSym = S.acc === '#' ? 'â™¯' : S.acc === 'b' ? 'â™­' : S.acc === 'n' ? 'â™®' : '';
+  const accSym = S.acc === '#' ? '♯' : S.acc === 'b' ? '♭' : S.acc === 'n' ? '♮' : '';
   showTooltip(e.clientX + 16, e.clientY - 36,
-    S.rest ? 'ð„½ Silencio' : (noteName(pitch) + accSym));
+    S.rest ? '𝄽 Silencio' : (noteName(pitch) + accSym));
 }
 
 function drawGhostLedger(gcc, staveInfo, svgRect, canvasRect, cx, cy, step) {
@@ -1731,13 +1731,13 @@ function drawGhostLedger(gcc, staveInfo, svgRect, canvasRect, cx, cy, step) {
   }
 
   if (step < -1) {
-    // Above: ledger lines at even steps (-2, -4, -6â€¦)
+    // Above: ledger lines at even steps (-2, -4, -6…)
     for (let s = -2; s >= step; s -= 2) {
       ledgerAt(staveInfo.y + s * 5);
     }
   }
   if (step > 9) {
-    // Below: ledger lines at even steps (10, 12â€¦)
+    // Below: ledger lines at even steps (10, 12…)
     for (let s = 10; s <= step; s += 2) {
       ledgerAt(staveInfo.y + s * 5);
     }
@@ -1764,21 +1764,21 @@ function onOverlayClick(e) {
   const svgX = e.clientX - svgRect.left;
   const svgY = e.clientY - svgRect.top;
 
-  // Check if click lands on an existing note â†’ toggle selection
+  // Check if click lands on an existing note → toggle selection
   const hitIdx = findNoteAt(svgX, svgY);
   if (hitIdx !== null) {
     toggleNoteSelection(hitIdx);
     return;
   }
 
-  // No note hit â†’ add new note at pitch position
+  // No note hit → add new note at pitch position
   const staveInfo = getStaveAtSVGy(svgY);
   if (!staveInfo || svgX < staveInfo.x || svgX > staveInfo.x + staveInfo.w) return;
 
   const pitch = svgYtoPitch(svgY, staveInfo.y);
   addNote(pitch);
 }
-// â”€â”€â”€ TOOLTIP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── TOOLTIP ───────────────────────────────────────────────────────
 
 function showTooltip(x, y, text) {
   const t = document.getElementById('tooltip');
@@ -1788,7 +1788,7 @@ function showTooltip(x, y, text) {
 function hideTooltip() {
   document.getElementById('tooltip').style.display = 'none';
 }
-// â”€â”€â”€ EARS (MIC â†’ NOTES) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── EARS (MIC → NOTES) ───────────────────────────────────────────
 
 const Ears = {
   ctx: null, analyser: null, stream: null,
@@ -1810,7 +1810,7 @@ const Ears = {
     try {
       this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     } catch(e) {
-      alert('MicrÃ³fono no disponible: ' + (e.message || e));
+      alert('Micrófono no disponible: ' + (e.message || e));
       return;
     }
     this.ctx      = new (window.AudioContext || window.webkitAudioContext)();
@@ -1841,7 +1841,7 @@ const Ears = {
     this.ctx?.close().catch(()=>{});
     this.ctx = null; this.analyser = null; this.stream = null;
     document.getElementById('btn-mic').classList.remove('recording');
-    document.getElementById('ears-note').textContent = 'â€”';
+    document.getElementById('ears-note').textContent = '—';
     document.getElementById('ears-freq').textContent = '';
     setState(S.notes.length > 0 ? 'loaded' : this.prevState);
   },
@@ -1933,7 +1933,7 @@ const Ears = {
     const info = this._freqToName(freq);
 
     if (!info) {
-      if (noteEl) noteEl.textContent = 'â€”';
+      if (noteEl) noteEl.textContent = '—';
       if (freqEl) freqEl.textContent = '';
       this.lastNote = null;
       return;
@@ -1997,7 +1997,7 @@ const Ears = {
   },
 };
 
-// â”€â”€â”€ KEYBOARD SHORTCUTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── KEYBOARD SHORTCUTS ────────────────────────────────────────────
 
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
@@ -2029,7 +2029,7 @@ function shiftLastOctave(delta) {
     schedRender();
   }
 }
-// â”€â”€â”€ AUDIO PLAYBACK (Tone.js) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── AUDIO PLAYBACK (Tone.js) ──────────────────────────────────────
 
 let isPlaying = false;
 let synth     = null;
@@ -2052,7 +2052,7 @@ async function togglePlay() {
   }
 
   isPlaying = true;
-  document.getElementById('btn-play').textContent = 'â¹ Detener';
+  document.getElementById('btn-play').textContent = '⏹ Detener';
   document.getElementById('btn-play').classList.add('active');
 
   Tone.Transport.bpm.value = 84;
@@ -2080,10 +2080,10 @@ function stopPlay() {
   isPlaying = false;
   if (stopTimer) { clearTimeout(stopTimer); stopTimer = null; }
   if (synth) { try { synth.releaseAll(); } catch (_) {} }
-  document.getElementById('btn-play').textContent = 'â–¶ Reproducir';
+  document.getElementById('btn-play').textContent = '▶ Reproducir';
   document.getElementById('btn-play').classList.remove('active');
 }
-// â”€â”€â”€ MUSICXML EXPORT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MUSICXML EXPORT ───────────────────────────────────────────────
 
 function exportMusicXML() {
   if (S.notes.length === 0) { alert('No hay notas para exportar.'); return; }
@@ -2242,7 +2242,7 @@ function loadMusicXML(xmlStr) {
   const movTitle  = doc.querySelector('movement-title');
   const workTitle = doc.querySelector('work > work-title');
   const creator   = doc.querySelector('creator[type="composer"]');
-  const titleStr  = (movTitle || workTitle)?.textContent?.trim() || 'Sin tÃ­tulo';
+  const titleStr  = (movTitle || workTitle)?.textContent?.trim() || 'Sin título';
   const compStr   = creator?.textContent?.trim() || 'Compositor';
 
   document.getElementById('m-title').value    = titleStr;
@@ -2288,7 +2288,7 @@ function loadMusicXML(xmlStr) {
     'whole':'w', 'half':'h', 'quarter':'q', 'eighth':'8', '16th':'16', '32nd':'32',
   };
   const firstPart = doc.querySelector('part');
-  if (!firstPart) { alert('No se encontrÃ³ ninguna parte en el MusicXML.'); return; }
+  if (!firstPart) { alert('No se encontró ninguna parte en el MusicXML.'); return; }
 
   const notes = [];
   firstPart.querySelectorAll('note').forEach(noteEl => {
@@ -2317,7 +2317,7 @@ function loadMusicXML(xmlStr) {
 
   S.selected.clear();
   S.notes = notes;
-  if (xmlStr === EXAMPLE_SCORE) storeRecentScore('Ejemplo melancÃ³lico', EXAMPLE_SCORE);
+  if (xmlStr === EXAMPLE_SCORE) storeRecentScore('Ejemplo melancólico', EXAMPLE_SCORE);
   updateTransposeBtn();
   schedRender();
   renderPartsContent();
@@ -2334,13 +2334,13 @@ async function detectLauncher() {
     if (r.ok) {
       S.launcher = true;
       const badge = document.getElementById('mode-badge');
-      badge.textContent = 'ðŸ”— Pipeline';
+      badge.textContent = '🔗 Pipeline';
       badge.className = 'badge badge-pipeline';
     }
   } catch(_) {
     S.launcher = false;
     const badge = document.getElementById('mode-badge');
-    badge.textContent = 'ðŸ”§ Offline';
+    badge.textContent = '🔧 Offline';
     badge.className = 'badge badge-offline';
   }
 }
@@ -2416,7 +2416,7 @@ function applyTransposeLocal(semitones) {
     changed,
     unchanged,
     validated: false,
-    warnings: S.launcher ? [] : ['TransposiciÃ³n local â€” sin validaciÃ³n de pipeline BAGO'],
+    warnings: S.launcher ? [] : ['Transposición local — sin validación de pipeline BAGO'],
   };
 
   S.selected.clear();
@@ -2445,7 +2445,7 @@ async function applyTransposePipeline(semitones) {
     if (!data.ok) throw new Error(data.error || 'Pipeline error');
 
     const parsedXml = new DOMParser().parseFromString(data.xml, 'application/xml');
-    if (parsedXml.querySelector('parsererror')) throw new Error('XML invÃ¡lido devuelto por el pipeline');
+    if (parsedXml.querySelector('parsererror')) throw new Error('XML inválido devuelto por el pipeline');
     S.xmlDoc = parsedXml;
     S.xmlMode = 'edit';
     S.notes = [];
@@ -2530,7 +2530,7 @@ function renderPartsContent() {
     const notes = partEl ? Array.from(partEl.querySelectorAll('note')).filter(n => !n.querySelector('rest')).length : '?';
     return `<div class="part-card">
       <div class="part-name">${esc(name)}</div>
-      <div class="part-meta">${measures} compases Â· ${notes} notas</div>
+      <div class="part-meta">${measures} compases · ${notes} notas</div>
     </div>`;
   }).join('') || '<p class="part-meta">No hay estructura disponible.</p>';
 }
@@ -2539,10 +2539,10 @@ function renderMetaSummary() {
   const host = document.getElementById('parts-summary');
   if (!host) return;
   host.innerHTML = [
-    ['TÃ­tulo', S.title || 'Sin tÃ­tulo'],
+    ['Título', S.title || 'Sin título'],
     ['Compositor', S.composer || 'Compositor'],
     ['Clave', S.clef === 'treble' ? 'Sol' : 'Fa'],
-    ['CompÃ¡s', S.timeSig],
+    ['Compás', S.timeSig],
     ['Armadura', S.keySig],
     ['Modo', S.launcher ? 'Pipeline BAGO' : 'Local JS'],
   ].map(([label, value]) => `<div class="meta-chip"><strong>${esc(value)}</strong>${label}</div>`).join('');
@@ -2552,8 +2552,8 @@ function renderResultContent() {
   const r = S.lastReport;
   if (!r) return;
   const badge = document.getElementById('result-badge');
-  badge.textContent = r.validated ? 'âœ… VÃ¡lido Â· Pipeline BAGO' :
-    (r.mode === 'pipeline' ? 'âš ï¸ Con advertencias' : 'ðŸ”§ TransposiciÃ³n local');
+  badge.textContent = r.validated ? '✅ Válido · Pipeline BAGO' :
+    (r.mode === 'pipeline' ? '⚠️ Con advertencias' : '🔧 Transposición local');
   badge.className = r.validated ? 'badge-ok' : (r.mode === 'local' ? 'badge-local' : 'badge-warn');
 
   document.getElementById('result-stats').innerHTML = `
@@ -2564,11 +2564,11 @@ function renderResultContent() {
 
   const chips = ['inventory','transpose','validate'];
   document.getElementById('pipeline-chips').innerHTML = chips.map(c =>
-    `<span class="chip ${r.mode === 'pipeline' ? 'chip-ok' : 'chip-gray'}">${c.toUpperCase()} ${r.mode === 'pipeline' ? 'âœ“' : 'â€”'}</span>`
+    `<span class="chip ${r.mode === 'pipeline' ? 'chip-ok' : 'chip-gray'}">${c.toUpperCase()} ${r.mode === 'pipeline' ? '✓' : '—'}</span>`
   ).join('');
 
   const warns = document.getElementById('result-warnings');
-  warns.innerHTML = (r.warnings || []).map(w => `<div class="warn-item">âš ï¸ ${esc(w)}</div>`).join('');
+  warns.innerHTML = (r.warnings || []).map(w => `<div class="warn-item">⚠️ ${esc(w)}</div>`).join('');
 }
 
 function getIntervalName() {
@@ -2609,9 +2609,9 @@ function updateIntervalPreview() {
 function renderTransposeContent() {
   const ts = document.getElementById('target-summary');
   if (S.selected.size > 0) {
-    ts.innerHTML = `<div class="target-card" style="padding:14px;margin-bottom:12px;">SelecciÃ³n: <strong>${S.selected.size} notas</strong></div>`;
+    ts.innerHTML = `<div class="target-card" style="padding:14px;margin-bottom:12px;">Selección: <strong>${S.selected.size} notas</strong></div>`;
   } else {
-    ts.innerHTML = `<div class="target-card" style="padding:14px;margin-bottom:12px;">Toda la partitura Â· <strong>${S.notes.length} notas</strong></div>`;
+    ts.innerHTML = `<div class="target-card" style="padding:14px;margin-bottom:12px;">Toda la partitura · <strong>${S.notes.length} notas</strong></div>`;
   }
 
   const intervals = ['m2','M2','m3','M3','P4','P5','P8'];
@@ -2639,7 +2639,7 @@ function showProcessing(on) {
     overlay.id = 'processing-overlay';
     document.body.appendChild(overlay);
   }
-  overlay.innerHTML = '<div class="proc-spinner">â—†</div><div class="proc-text">Aplicando pipelineâ€¦</div>';
+  overlay.innerHTML = '<div class="proc-spinner">◆</div><div class="proc-text">Aplicando pipeline…</div>';
   overlay.style.display = on ? 'flex' : 'none';
 }
 
@@ -2650,7 +2650,7 @@ function showProcessingError(msg) {
     overlay.id = 'processing-overlay';
     document.body.appendChild(overlay);
   }
-  overlay.innerHTML = `<div class="proc-error">âŒ ${esc(msg)}</div><button class="btn" onclick="document.getElementById('processing-overlay').style.display='none'">Cerrar</button>`;
+  overlay.innerHTML = `<div class="proc-error">❌ ${esc(msg)}</div><button class="btn" onclick="document.getElementById('processing-overlay').style.display='none'">Cerrar</button>`;
   overlay.style.display = 'flex';
 }
 
@@ -2758,7 +2758,7 @@ const EXAMPLE_SCORE = `<?xml version="1.0" encoding="UTF-8"?>
     <score-part id="P2"><part-name>Alto</part-name></score-part>
     <score-part id="P3"><part-name>Bajo</part-name></score-part>
   </part-list>
-  <!-- P1: Soprano â€” melodÃ­a lÃ­rica alta -->
+  <!-- P1: Soprano — melodía lírica alta -->
   <part id="P1">
     <measure number="1">
       <attributes>
@@ -2801,7 +2801,7 @@ const EXAMPLE_SCORE = `<?xml version="1.0" encoding="UTF-8"?>
       <note><pitch><step>A</step><octave>4</octave></pitch><duration>6</duration><type>half</type><dot/></note>
     </measure>
   </part>
-  <!-- P2: Alto â€” armonÃ­a en terceras/sextas bajo soprano -->
+  <!-- P2: Alto — armonía en terceras/sextas bajo soprano -->
   <part id="P2">
     <measure number="1">
       <attributes>
@@ -2844,7 +2844,7 @@ const EXAMPLE_SCORE = `<?xml version="1.0" encoding="UTF-8"?>
       <note><pitch><step>E</step><octave>4</octave></pitch><duration>6</duration><type>half</type><dot/></note>
     </measure>
   </part>
-  <!-- P3: Bajo â€” pedal + movimiento de raÃ­z -->
+  <!-- P3: Bajo — pedal + movimiento de raíz -->
   <part id="P3">
     <measure number="1">
       <attributes>
@@ -2893,7 +2893,7 @@ async function init() {
   if (typeof Vex !== 'undefined' && Vex.Flow) VF = Vex.Flow;
   else if (typeof VexFlow !== 'undefined') VF = VexFlow;
   else {
-    document.getElementById('empty-drop').innerHTML += '<p style="color:#ffb3b3">âš ï¸ VexFlow no cargado</p>';
+    document.getElementById('empty-drop').innerHTML += '<p style="color:#ffb3b3">⚠️ VexFlow no cargado</p>';
     return;
   }
 
@@ -2905,7 +2905,7 @@ async function init() {
   window.addEventListener('resize', schedRender);
 
   document.getElementById('sc-title').addEventListener('click', function() {
-    const v = prompt('TÃ­tulo de la obra:', this.textContent);
+    const v = prompt('Título de la obra:', this.textContent);
     if (v !== null) {
       this.textContent = v;
       S.title = v;
