@@ -40,21 +40,22 @@ jobs:
       - name: Install expect
         run: sudo apt-get update && sudo apt-get install -y expect
 
-      - name: Init TWA (auto-answer all prompts)
+      - name: Init TWA
         run: |
           mkdir -p twa
           /usr/bin/expect -c '
-            set timeout 180
+            set timeout 300
             spawn bubblewrap init \
               --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
               --directory twa
             expect {
+              -re {\(y/N\)} { send "n\r"; exp_continue }
               -re {\?.*:} { send "\r"; exp_continue }
               timeout { puts "TIMEOUT"; exit 1 }
               eof { puts "EOF"; exit 0 }
             }
           '
-        timeout-minutes: 6
+        timeout-minutes: 8
 
       - name: Build APK
         run: |
