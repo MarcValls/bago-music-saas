@@ -1,12 +1,12 @@
 ﻿import requests, sys
 
 TOKEN = "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA"
-WEBHOOK_URL = sys.argv[1] if len(sys.argv) > 1 else "https://bago-music-saas.onrender.com/webhook"
+BASE_URL = sys.argv[1] if len(sys.argv) > 1 else input("URL del servidor (ej: https://bago-music-saas.onrender.com): ").strip()
+WEBHOOK_URL = f"{BASE_URL}/webhook"
 
-# Set webhook
+print(f"Configurando webhook: {WEBHOOK_URL}")
 r = requests.post(f"https://api.telegram.org/bot{TOKEN}/setWebhook", json={"url": WEBHOOK_URL})
-print(r.json())
+print("setWebhook:", r.json())
 
-# Get webhook info
 r2 = requests.get(f"https://api.telegram.org/bot{TOKEN}/getWebhookInfo")
-print(r2.json())
+print("getWebhookInfo:", r2.json())
