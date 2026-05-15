@@ -27,7 +27,7 @@ jobs:
       - name: Install Bubblewrap
         run: npm install -g @bubblewrap/cli
 
-      - name: Configurar Bubblewrap (sin prompts)
+      - name: Configurar Bubblewrap
         run: |
           mkdir -p ~/.bubblewrap
           cat > ~/.bubblewrap/config.json <<EOF
@@ -36,13 +36,12 @@ jobs:
             "androidSdkPath": "$ANDROID_HOME"
           }
           EOF
-          cat ~/.bubblewrap/config.json
 
       - name: Init TWA
         run: |
           mkdir -p twa
           bubblewrap init \
-            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
+            --manifest ./manifest.json \
             --directory twa
         timeout-minutes: 5
 
