@@ -23,14 +23,12 @@ jobs:
       - name: Init TWA
         run: |
           mkdir -p twa
-          export JAVA_HOME=$JAVA_HOME_17_X64
-          bubblewrap init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory twa --yes
+          yes "no" | bubblewrap init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory twa
         env:
           JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
       - name: Build APK
         run: |
           cd twa
-          export JAVA_HOME=$JAVA_HOME_17_X64
           bubblewrap build
         env:
           JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
