@@ -10,45 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Setup JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install Bubblewrap
-        run: npm install -g @bubblewrap/cli
-
-      - name: Configurar Bubblewrap
+      - name: Init TWA with Docker
         run: |
-          mkdir -p ~/.bubblewrap
-          cat > ~/.bubblewrap/config.json <<'JSON'
-          {
-            "jdkPath": "${JAVA_HOME}",
-            "androidSdkPath": "${ANDROID_HOME}"
-          }
-          JSON
-
-      - name: Init TWA
-        run: |
-          rm -rf twa
-          yes | npx bubblewrap init \
-            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
-            --directory twa
+          mkdir -p twa
+          yes | docker run --rm -i -v $(pwd)/twa:/twa -w /twa \
+            ghcr.io/googlechromelabs/bubblewrap:latest \
+            init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory /twa
         timeout-minutes: 15
 
-      - name: Build APK
+      - name: Build APK with Docker
         run: |
-          cd twa
-          npx bubblewrap build
+          docker run --rm -v $(pwd)/twa:/twa -w /twa \
+            ghcr.io/googlechromelabs/bubblewrap:latest \
+            build
         timeout-minutes: 15
 
       - name: Upload APK
