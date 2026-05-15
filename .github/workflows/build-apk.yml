@@ -37,21 +37,31 @@ jobs:
           }
           JSON
 
-      - name: Prepare TWA
+      - name: Init TWA
         run: |
+          rm -rf twa
           mkdir -p twa
-          cp twa-manifest.json twa/
-
-      - name: Update TWA
-        run: |
-          cd twa
-          bubblewrap update
+          npx bubblewrap init \
+            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
+            --directory twa \
+            --packageId com.bago.music \
+            --host marcvalls.github.io \
+            --name "BAGO Music Score" \
+            --launcherName "BAGO Music" \
+            --display standalone \
+            --themeColor "#00D4AA" \
+            --navigationColor "#000000" \
+            --backgroundColor "#0C0C0C" \
+            --startUrl "/bago-music-saas/" \
+            --iconUrl "https://marcvalls.github.io/bago-music-saas/icon-192.svg" \
+            2>&1 || true
+          ls -la twa/
         timeout-minutes: 5
 
       - name: Build APK
         run: |
           cd twa
-          bubblewrap build
+          npx bubblewrap build
         timeout-minutes: 15
 
       - name: Upload APK
