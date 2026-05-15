@@ -43,7 +43,7 @@ jobs:
           yes | npx bubblewrap init \
             --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
             --directory twa
-        timeout-minutes: 8
+        timeout-minutes: 15
 
       - name: Build APK
         run: |
