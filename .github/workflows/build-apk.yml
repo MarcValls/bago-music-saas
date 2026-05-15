@@ -37,13 +37,37 @@ jobs:
           }
           JSON
 
-      - name: Prepare TWA project
+      - name: Install expect
+        run: sudo apt-get update && sudo apt-get install -y expect
+
+      - name: Init TWA
         run: |
-          mkdir -p twa
-          cp twa-manifest.json twa/
-          cd twa
-          yes | bubblewrap update
-        timeout-minutes: 5
+          rm -rf twa
+          /usr/bin/unbuffer bubblewrap init \
+            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
+            --directory twa <<'EOF'
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          y
+          EOF
+        timeout-minutes: 15
 
       - name: Build APK
         run: |
