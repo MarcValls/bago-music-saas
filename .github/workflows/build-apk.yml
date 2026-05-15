@@ -42,13 +42,18 @@ jobs:
 
       - name: Init TWA
         run: |
-          mkdir -p twa
+          rm -rf twa
           /usr/bin/expect -c '
             set timeout 300
             spawn bubblewrap init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory twa
             expect {
-              -re {(\\(y/N\\)|\\(Y/n\\))} { send "n\\r"; exp_continue }
+              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
+              -re {already exists.*delete} { send "y\\r"; exp_continue }
+              -re {generate asset links} { send "n\\r"; exp_continue }
+              -re {signing key} { send "n\\r"; exp_continue }
+              -re {keystore} { send "n\\r"; exp_continue }
               -re {\\?.*:} { send "\\r"; exp_continue }
+              -re {: $} { send "\\r"; exp_continue }
               timeout { puts "TIMEOUT"; exit 1 }
               eof { puts "EOF"; exit 0 }
             }
@@ -62,8 +67,13 @@ jobs:
             set timeout 300
             spawn bubblewrap update
             expect {
-              -re {(\\(y/N\\)|\\(Y/n\\))} { send "n\\r"; exp_continue }
+              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
+              -re {already exists.*delete} { send "y\\r"; exp_continue }
+              -re {generate asset links} { send "n\\r"; exp_continue }
+              -re {signing key} { send "n\\r"; exp_continue }
+              -re {keystore} { send "n\\r"; exp_continue }
               -re {\\?.*:} { send "\\r"; exp_continue }
+              -re {: $} { send "\\r"; exp_continue }
               timeout { puts "TIMEOUT"; exit 1 }
               eof { puts "EOF"; exit 0 }
             }
@@ -77,9 +87,14 @@ jobs:
             set timeout 600
             spawn bubblewrap build
             expect {
-              -re {(\\(y/N\\)|\\(Y/n\\))} { send "n\\r"; exp_continue }
+              -re {(\\(y/N\\)|\\(Y/n\\)|\\(y/n\\))} { send "n\\r"; exp_continue }
+              -re {already exists.*delete} { send "y\\r"; exp_continue }
+              -re {generate asset links} { send "n\\r"; exp_continue }
+              -re {signing key} { send "n\\r"; exp_continue }
+              -re {keystore} { send "n\\r"; exp_continue }
               -re {regenerate} { send "n\\r"; exp_continue }
               -re {\\?.*:} { send "\\r"; exp_continue }
+              -re {: $} { send "\\r"; exp_continue }
               timeout { puts "TIMEOUT"; exit 1 }
               eof { puts "EOF"; exit 0 }
             }
