@@ -1,4 +1,4 @@
-﻿import requests
+import requests
 import sys
 
 TOKEN = "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA"

@@ -1,4 +1,4 @@
-﻿import requests, subprocess, time
+import requests, subprocess, time
 
 TOKEN = "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA"
 API = "https://api.telegram.org/bot" + TOKEN

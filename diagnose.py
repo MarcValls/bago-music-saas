@@ -1,4 +1,4 @@
-﻿import requests, json, sys
+import requests, json, sys
 
 # Verificar webhook
 TOKEN = "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA"

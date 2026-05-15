@@ -1,4 +1,4 @@
-﻿import requests, sys
+import requests, sys
 
 TOKEN = "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA"
 BASE_URL = sys.argv[1] if len(sys.argv) > 1 else input("URL del servidor (ej: https://bago-music-saas.onrender.com): ").strip()

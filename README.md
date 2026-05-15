@@ -1,4 +1,4 @@
-﻿# BAGO Music SaaS
+# BAGO Music SaaS
 
 ## Deploy en 2 minutos
 

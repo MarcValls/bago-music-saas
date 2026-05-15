@@ -1,4 +1,4 @@
-﻿"""BAGO Telegram Bot — webhook handler para Render.com"""
+"""BAGO Telegram Bot — webhook handler para Render.com"""
 import json, os, subprocess, tempfile
 from pathlib import Path
 
