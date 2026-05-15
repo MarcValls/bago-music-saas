@@ -27,10 +27,16 @@ jobs:
       - name: Fix Gradle permissions
         run: chmod +x twa/gradlew
 
+      - name: Create local.properties
+        run: |
+          cd twa
+          echo "sdk.dir=$ANDROID_HOME" > local.properties
+          cat local.properties
+
       - name: Build APK with Gradle
         run: |
           cd twa
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease --stacktrace
         timeout-minutes: 15
 
       - name: Upload APK
@@ -42,7 +48,7 @@ jobs:
       - name: Build AAB with Gradle
         run: |
           cd twa
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease --stacktrace
         timeout-minutes: 15
 
       - name: Upload AAB
