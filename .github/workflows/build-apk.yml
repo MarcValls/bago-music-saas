@@ -37,12 +37,38 @@ jobs:
           }
           EOF
 
-      - name: Init TWA
+      - name: Install expect
+        run: sudo apt-get update && sudo apt-get install -y expect
+
+      - name: Init TWA (auto-answer prompts with expect)
         run: |
           mkdir -p twa
-          bubblewrap init \
-            --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
-            --directory twa
+          /usr/bin/expect -c '
+            set timeout 60
+            spawn bubblewrap init \
+              --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
+              --directory twa
+            expect {
+              "Domain:" { send "\r"; exp_continue }
+              "URL path:" { send "\r"; exp_continue }
+              "package name:" { send "\r"; exp_continue }
+              "App name:" { send "\r"; exp_continue }
+              "Launcher name:" { send "\r"; exp_continue }
+              "Theme color:" { send "\r"; exp_continue }
+              "Display mode:" { send "\r"; exp_continue }
+              "Orientation:" { send "\r"; exp_continue }
+              "Start URL:" { send "\r"; exp_continue }
+              "Version code:" { send "\r"; exp_continue }
+              "Version name:" { send "\r"; exp_continue }
+              "Include location:" { send "n\r"; exp_continue }
+              "Include notifications:" { send "n\r"; exp_continue }
+              "Include shortcuts:" { send "n\r"; exp_continue }
+              "share target:" { send "n\r"; exp_continue }
+              "file handler:" { send "n\r"; exp_continue }
+              timeout { puts "TIMEOUT"; exit 1 }
+              eof { puts "EOF"; exit 0 }
+            }
+          '
         timeout-minutes: 5
 
       - name: Build APK
