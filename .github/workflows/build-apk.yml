@@ -18,9 +18,11 @@ jobs:
       - name: Install Bubblewrap
         run: npm install -g @bubblewrap/cli
 
-      - name: Init TWA (auto-accept all)
+      - name: Init TWA
         run: |
           mkdir -p twa
+          # Desactivar pipefail para evitar error de 'yes' cuando bubblewrap cierra stdin
+          set +o pipefail
           yes | bubblewrap init \
             --manifest https://marcvalls.github.io/bago-music-saas/manifest.json \
             --directory twa > /dev/null 2>&1
