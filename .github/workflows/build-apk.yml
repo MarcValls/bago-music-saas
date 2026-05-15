@@ -24,6 +24,9 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Fix Gradle permissions
+        run: chmod +x twa/gradlew
+
       - name: Build APK with Gradle
         run: |
           cd twa
