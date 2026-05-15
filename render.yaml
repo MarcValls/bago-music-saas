@@ -4,11 +4,10 @@
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: cd app && uvicorn main:app --host 0.0.0.0 --port $PORT --no-access-log
     envVars:
       - key: BAGO_TELEGRAM_TOKEN
         value: 8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA
       - key: PYTHONUNBUFFERED
         value: "1"
-    healthCheckPath: /api/state
     autoDeploy: true
