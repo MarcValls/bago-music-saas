@@ -3,8 +3,7 @@ services:
   bago-music:
     build: .
     ports:
-      - "7430:7430"
-    env_file:
-      - .env
-    volumes:
-      - ./static:/app/static:ro
+      - "${PORT:-7430}:7430"
+    environment:
+      - BAGO_TELEGRAM_TOKEN=8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA
+      - PYTHONUNBUFFERED=1
