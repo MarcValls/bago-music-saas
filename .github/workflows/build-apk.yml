@@ -24,33 +24,26 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Bubblewrap
-        run: npm install -g @bubblewrap/cli
-
-      - name: Configurar Bubblewrap
-        run: |
-          mkdir -p ~/.bubblewrap
-          cat > ~/.bubblewrap/config.json <<'JSON'
-          {
-            "jdkPath": "${JAVA_HOME}",
-            "androidSdkPath": "${ANDROID_HOME}"
-          }
-          JSON
-
-      - name: Build APK
+      - name: Build APK with Gradle
         run: |
           cd twa
-          npx bubblewrap build
+          ./gradlew assembleRelease
         timeout-minutes: 15
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: bago-music-apk
-          path: twa/*.apk
+          path: twa/app/build/outputs/apk/release/*.apk
+
+      - name: Build AAB with Gradle
+        run: |
+          cd twa
+          ./gradlew bundleRelease
+        timeout-minutes: 15
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
         with:
           name: bago-music-aab
-          path: twa/*.aab
+          path: twa/app/build/outputs/bundle/release/*.aab
