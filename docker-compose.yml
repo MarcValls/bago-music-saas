@@ -1,0 +1,10 @@
+﻿version: "3.8"
+services:
+  bago-music:
+    build: .
+    ports:
+      - "7430:7430"
+    env_file:
+      - .env
+    volumes:
+      - ./static:/app/static:ro
