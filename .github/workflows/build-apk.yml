@@ -1,0 +1,38 @@
+﻿name: Build APK
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Bubblewrap
+        run: npm install -g @bubblewrap/cli
+      - name: Init TWA
+        run: |
+          mkdir -p twa
+          bubblewrap init --manifest https://marcvalls.github.io/bago-music-saas/manifest.json --directory twa --yes
+      - name: Build APK
+        run: |
+          cd twa
+          bubblewrap build
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: bago-music-apk
+          path: twa/*.apk
+      - name: Create Release
+        if: github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          files: twa/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
