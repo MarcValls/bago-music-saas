@@ -2,7 +2,12 @@
 import json, os, subprocess, tempfile
 from pathlib import Path
 
-TOKEN = os.environ.get("BAGO_TELEGRAM_TOKEN", "8519892399:AAHTKzfu_VyLUSpJ-iNjmSn9RcgFOsddeKA")
+TOKEN = os.environ.get("BAGO_TELEGRAM_TOKEN", "")
+if not TOKEN:
+    raise RuntimeError(
+        "BAGO_TELEGRAM_TOKEN no definido. "
+        "Añádelo en Render.com → Environment Variables."
+    )
 API = f"https://api.telegram.org/bot{TOKEN}"
 
 import requests
