@@ -1,2 +1,4 @@
 
 twa/.gradle/
+__pycache__/
+*.pyc

@@ -335,10 +335,10 @@ input[type=range]::-webkit-slider-thumb {
           onclick="document.getElementById('file-input').click()"
           ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
           <div class="drop-icon">🎵</div>
-          <div class="drop-title">Arrastra tu MusicXML aquí</div>
-          <div class="drop-sub">o pulsa para seleccionar archivo .xml / .mxl</div>
+          <div class="drop-title">Arrastra tu partitura aquí</div>
+          <div class="drop-sub">MusicXML (.xml/.mxl) o PDF (.pdf)</div>
         </div>
-        <input id="file-input" type="file" accept=".xml,.mxl,.musicxml" style="display:none" onchange="onFileSelect(event)">
+        <input id="file-input" type="file" accept=".xml,.mxl,.musicxml,.pdf,application/pdf" style="display:none" onchange="onFileSelect(event)">
 
         <!-- Quick load buttons -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
@@ -431,6 +431,7 @@ const ST = {
   originalXml:    null,
   transposedXml:  null,
   filename:       null,
+  pdfPreviewUrl:  null,
   inventory:      null,  // { title, composer, parts:[], measures, key, time }
   selectedTarget: 'all',
   semitones:      0,
@@ -544,9 +545,52 @@ function onFileSelect(e) {
   e.target.value = '';
 }
 function readFile(file) {
+  if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') {
+    loadPdfPreview(file);
+    return;
+  }
   const reader = new FileReader();
   reader.onload = ev => loadXml(ev.target.result, file.name);
   reader.readAsText(file);
+}
+
+function loadPdfPreview(file) {
+  if (ST.pdfPreviewUrl) {
+    URL.revokeObjectURL(ST.pdfPreviewUrl);
+    ST.pdfPreviewUrl = null;
+  }
+  ST.originalXml = null;
+  ST.transposedXml = null;
+  ST.filename = file.name;
+  ST.inventory = null;
+  ST.selectedTarget = 'all';
+  document.getElementById('header-filename').textContent = file.name;
+
+  const pdfUrl = URL.createObjectURL(file);
+  ST.pdfPreviewUrl = pdfUrl;
+  document.getElementById('partitura-inner').innerHTML = `
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-title">PDF cargado</div>
+      <div class="stat-row"><span class="stat-label">Archivo</span><span style="font-size:11px;font-family:monospace;color:var(--accent)">${esc(file.name)}</span></div>
+      <div class="stat-row"><span class="stat-label">Tipo</span><span class="stat-val">PDF</span></div>
+      <div class="stat-row"><span class="stat-label">Tamaño</span><span class="stat-val">${(file.size / 1024 / 1024).toFixed(2)} MB</span></div>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <iframe src="${pdfUrl}" title="PDF preview" style="width:100%;height:420px;border:0;background:#fff"></iframe>
+    </div>
+    <div style="font-size:11px;color:var(--warn);margin-top:10px">
+      ⚠️ El modo PDF es visualización; para transponer usa MusicXML.
+    </div>
+  `;
+  setBadge(1, '✅ cargado', 'done');
+  setBadge(2, 'PDF listo', 'done');
+  setBadge(3, 'requiere XML', 'warn');
+  setBadge(4, 'requiere XML', 'warn');
+  setBadge(5, 'requiere XML', 'warn');
+  setStep(2);
+  openAcc(2);
+  focusStep(2);
+  toast('✅ ' + file.name + ' (PDF)');
 }
 function loadFromPaste() {
   const xml = document.getElementById('xml-paste').value.trim();
@@ -632,6 +676,10 @@ function instrumentIcon(name) {
 }
 
 async function loadXml(xmlStr, filename) {
+  if (ST.pdfPreviewUrl) {
+    URL.revokeObjectURL(ST.pdfPreviewUrl);
+    ST.pdfPreviewUrl = null;
+  }
   ST.originalXml  = xmlStr;
   ST.transposedXml = null;
   ST.filename     = filename;
@@ -1138,6 +1186,10 @@ function openInEditor() {
 }
 
 function resetAll() {
+  if (ST.pdfPreviewUrl) {
+    URL.revokeObjectURL(ST.pdfPreviewUrl);
+    ST.pdfPreviewUrl = null;
+  }
   ST.originalXml = ST.transposedXml = ST.filename = ST.inventory = null;
   ST.selectedTarget = 'all'; ST.semitones = 0;
   document.getElementById('header-filename').textContent = 'Partituras & Transposición';
@@ -1400,4 +1452,3 @@ async function playPreview() {
 </script>
 </body>
 </html>
-
