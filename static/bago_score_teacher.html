@@ -605,7 +605,7 @@ function openPdfPreview() {
   a.rel = 'noopener noreferrer';
   document.body.appendChild(a);
   a.click();
-  a.remove();
+  setTimeout(() => a.remove(), 0);
 }
 function loadFromPaste() {
   const xml = document.getElementById('xml-paste').value.trim();
