@@ -566,17 +566,21 @@ function loadPdfPreview(file) {
   ST.selectedTarget = 'all';
   document.getElementById('header-filename').textContent = file.name;
 
-  const pdfUrl = URL.createObjectURL(file);
-  ST.pdfPreviewUrl = pdfUrl;
+  ST.pdfPreviewUrl = URL.createObjectURL(file);
+  const sizeLabel = file.size >= 1024 * 1024
+    ? `${(file.size / 1024 / 1024).toFixed(2)} MB`
+    : `${Math.max(1, Math.round(file.size / 1024))} KB`;
   document.getElementById('partitura-inner').innerHTML = `
     <div class="card" style="margin-bottom:10px">
       <div class="card-title">PDF cargado</div>
       <div class="stat-row"><span class="stat-label">Archivo</span><span style="font-size:11px;font-family:monospace;color:var(--accent)">${esc(file.name)}</span></div>
       <div class="stat-row"><span class="stat-label">Tipo</span><span class="stat-val">PDF</span></div>
-      <div class="stat-row"><span class="stat-label">Tamaño</span><span class="stat-val">${(file.size / 1024 / 1024).toFixed(2)} MB</span></div>
+      <div class="stat-row"><span class="stat-label">Tamaño</span><span class="stat-val">${sizeLabel}</span></div>
     </div>
-    <div class="card" style="padding:0;overflow:hidden">
-      <iframe src="${pdfUrl}" title="PDF preview" style="width:100%;height:420px;border:0;background:#fff"></iframe>
+    <div class="card" style="margin-bottom:10px">
+      <button class="btn btn-secondary" onclick="openPdfPreview()">
+        📄 Abrir PDF
+      </button>
     </div>
     <div style="font-size:11px;color:var(--warn);margin-top:10px">
       ⚠️ El modo PDF es visualización; para transponer usa MusicXML.
@@ -591,6 +595,11 @@ function loadPdfPreview(file) {
   openAcc(2);
   focusStep(2);
   toast('✅ ' + file.name + ' (PDF)');
+}
+
+function openPdfPreview() {
+  if (!ST.pdfPreviewUrl) return;
+  window.open(ST.pdfPreviewUrl, '_blank', 'noopener,noreferrer');
 }
 function loadFromPaste() {
   const xml = document.getElementById('xml-paste').value.trim();
